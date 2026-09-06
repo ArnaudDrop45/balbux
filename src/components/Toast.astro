@@ -1,0 +1,50 @@
+---
+---
+
+<div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 px-4 py-3 rounded-xl bg-balbux-deep text-white text-xs font-semibold shadow-xl border border-white/10 flex items-center gap-2 pointer-events-none">
+  <span class="text-gold-badge font-bold">✓</span>
+  <span id="toastMessage">Texte copié</span>
+</div>
+
+<script is:inline>
+  window.showToast = function(message) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    if (!toast || !toastMessage) return;
+    toastMessage.innerText = message;
+    toast.classList.remove('translate-y-20', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-20', 'opacity-0');
+    }, 2500);
+  };
+
+  window.copyToClipboard = function(text, btnElement) {
+    const tempInput = document.createElement('input');
+    tempInput.style.position = 'absolute';
+    tempInput.style.left = '-9999px';
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    
+    try {
+      document.execCommand('copy');
+      window.showToast(`Email copié : ${text}`);
+      if (btnElement) {
+        const originalText = btnElement.innerText;
+        btnElement.innerText = 'Copié !';
+        btnElement.classList.add('bg-balbux-soft', 'text-balbux-deep');
+        setTimeout(() => {
+          btnElement.innerText = originalText;
+          btnElement.classList.remove('bg-balbux-soft', 'text-balbux-deep');
+        }, 2000);
+      }
+    } catch (err) {
+      console.error('Erreur lors de la copie', err);
+    } finally {
+      document.body.removeChild(tempInput);
+    }
+  };
+</script>

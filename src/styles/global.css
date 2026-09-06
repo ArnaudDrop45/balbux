@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  --color-balbux-deep: #143425;
+  --color-balbux-forest: #1b3d2f;
+  --color-balbux-emerald: #24523e;
+  --color-balbux-accent: #2f7454;
+  --color-balbux-soft: #eef5f1;
+  --color-balbux-light: #f4f8f5;
+
+  --color-cream-sand: #f8f6f0;
+  --color-cream-ivory: #fcfbfa;
+  --color-cream-card: #f4f0e6;
+
+  --color-gold-badge: #cbb279;
+  --color-gold-dark: #ad8f4f;
+  --color-gold-light: #ebdcb6;
+
+  --color-slate-charcoal: #1c2220;
+  --color-slate-stone: #4d5752;
+}
+
+@layer utilities {
+  .bg-grain {
+    background-image: radial-gradient(rgba(20, 52, 37, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .custom-shadow {
+    box-shadow: 0 20px 40px -15px rgba(20, 52, 37, 0.08);
+  }
+  .hero-glow {
+    background: radial-gradient(circle at 50% 30%, rgba(47, 116, 84, 0.12), transparent 70%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+}
