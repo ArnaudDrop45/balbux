@@ -1,132 +1,131 @@
 ---
 ---
 
-<section id="contacto" class="py-24 bg-white border-t border-stone-200">
+<section id="contact" class="py-20 lg:py-24 bg-white border-t border-stone-200 scroll-mt-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="grid lg:grid-cols-12 gap-12">
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark">Réseau B2B & Corporate</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-balbux-deep mt-2">
+        Initiez le dialogue avec BalBux
+      </h2>
+      <p class="text-base text-slate-stone mt-4 leading-relaxed font-light">
+        Pour toute demande de distribution, alliance d'importation ou projet de développement de marque en Europe, notre direction générale est à votre écoute directe.
+      </p>
+    </div>
+
+    <!-- Content Grid: 2 balanced columns -->
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
       
-      <!-- Left Contact Info -->
-      <div class="lg:col-span-5 space-y-8">
-        <div>
-          <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark">Réseau B2B & Corporate</span>
-          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-balbux-deep mt-2">
-            Initiez le dialogue avec BalBux Group
-          </h2>
-          <p class="text-sm text-slate-stone mt-3 leading-relaxed">
-            Nous répondons aux demandes de distribution, aux alliances d'importation et aux projets de développement de marque de distributeur en Europe.
-          </p>
-        </div>
-
-        <div class="rounded-2xl overflow-hidden shadow-md">
-          <img src="/images/b2b_meeting.jpg" alt="Réunion d'affaires B2B BalBux" class="w-full h-auto object-cover" loading="lazy" />
-        </div>
-
-        <!-- Direct Contacts Cards -->
-        <div class="space-y-4">
-          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-charcoal">Équipe de Direction</h3>
-          
-          <!-- Jean Buxassa -->
-          <div class="p-4 rounded-2xl bg-cream-sand/80 border border-stone-200 flex items-center justify-between">
-            <div>
-              <p class="font-bold text-sm text-balbux-deep">Jean Buxassa</p>
-              <a href="mailto:jbuxassa@balbuxgroup.com" class="text-xs text-balbux-accent hover:underline font-mono">
-                jbuxassa@balbuxgroup.com
-              </a>
-            </div>
-            <button onclick="window.copyToClipboard('jbuxassa@balbuxgroup.com', this)" class="px-3 py-1.5 text-[11px] font-semibold rounded-lg bg-white border border-stone-300 hover:bg-stone-50 transition-colors text-slate-stone shadow-xs cursor-pointer">
-              Copier
-            </button>
-          </div>
-
-          <!-- Roberto Balcázar -->
-          <div class="p-4 rounded-2xl bg-cream-sand/80 border border-stone-200 flex items-center justify-between">
-            <div>
-              <p class="font-bold text-sm text-balbux-deep">Roberto Balcázar</p>
-              <a href="mailto:rbalcazar@balbuxgroup.com" class="text-xs text-balbux-accent hover:underline font-mono">
-                rbalcazar@balbuxgroup.com
-              </a>
-            </div>
-            <button onclick="window.copyToClipboard('rbalcazar@balbuxgroup.com', this)" class="px-3 py-1.5 text-[11px] font-semibold rounded-lg bg-white border border-stone-300 hover:bg-stone-50 transition-colors text-slate-stone shadow-xs cursor-pointer">
-              Copier
-            </button>
-          </div>
-
-          <!-- General Contact -->
-          <div class="p-4 rounded-2xl bg-balbux-soft/60 border border-balbux-forest/15 flex items-center justify-between">
-            <div>
-              <p class="font-bold text-sm text-balbux-deep">Informations Générales</p>
-              <a href="mailto:contacto@balbuxgroup.com" class="text-xs text-balbux-deep font-semibold hover:underline font-mono">
-                contacto@balbuxgroup.com
-              </a>
-            </div>
-            <button onclick="window.copyToClipboard('contacto@balbuxgroup.com', this)" class="px-3 py-1.5 text-[11px] font-semibold rounded-lg bg-white border border-stone-300 hover:bg-stone-50 transition-colors text-slate-stone shadow-xs cursor-pointer">
-              Copier
-            </button>
-          </div>
+      <!-- Left Column: Visual & Legal Details -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="rounded-3xl overflow-hidden shadow-lg border border-stone-200">
+          <img 
+            src="/images/b2b_meeting.jpg" 
+            alt="Réunion d'affaires B2B BalBux" 
+            class="w-full h-64 sm:h-72 object-cover" 
+            loading="lazy" 
+          />
         </div>
 
         <!-- Headquarters Details -->
-        <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200 space-y-3 text-xs text-slate-stone">
-          <p class="font-bold text-slate-charcoal">Siège & Enregistrement France :</p>
-          <p>📍 189 route de Lyon, 38390 Porcieu-Amblagnieu, France</p>
-          <p>📑 SIREN 824 597 819 · RNE 27/12/2016</p>
-          <p>🌐 www.balbuxgroup.com</p>
+        <div class="p-6 rounded-3xl bg-cream-sand/60 border border-stone-200 space-y-3 text-xs text-slate-stone shadow-xs">
+          <p class="font-bold text-sm text-balbux-deep">Siège & Enregistrement France :</p>
+          <p class="flex items-center gap-2">
+            <span>📍</span>
+            <span>189 route de Lyon, 38390 Porcieu-Amblagnieu, France</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <span>📑</span>
+            <span>SIREN 824 597 819 · RNE 27/12/2016</span>
+          </p>
+          <p class="flex items-center gap-2 font-medium text-balbux-deep">
+            <span>🌐</span>
+            <a href="https://www.balbux.com" target="_blank" rel="noopener noreferrer" class="hover:underline">www.balbux.com</a>
+          </p>
         </div>
       </div>
 
-      <!-- Right Interactive Contact Form -->
-      <div class="lg:col-span-7">
-        <div class="p-8 sm:p-10 rounded-3xl bg-cream-sand/50 border border-stone-200 custom-shadow sticky top-32">
-          <h3 class="text-2xl font-serif font-bold text-balbux-deep mb-2">Demande de Dossier Commercial & Échantillons</h3>
-          <p class="text-xs text-slate-stone mb-8">Renseignez les informations de votre entreprise et nous vous contacterons dans les plus brefs délais.</p>
+      <!-- Right Column: Direct Contacts -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="p-8 rounded-3xl bg-cream-sand/40 border border-stone-200 shadow-sm space-y-6">
+          <div>
+            <h3 class="text-xl font-serif font-bold text-balbux-deep">Équipe de Direction</h3>
+            <p class="text-xs text-slate-stone mt-1">
+              Contactez directement les fondateurs pour initier vos projets commerciaux ou logistiques.
+            </p>
+          </div>
 
-          <form id="b2bContactForm" class="space-y-5">
-            <div class="grid sm:grid-cols-2 gap-5">
+          <div class="space-y-4">
+            <!-- Jean Buxassa -->
+            <div class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-slate-stone mb-2">Nom complet *</label>
-                <input type="text" id="fullName" required placeholder="Ex. Marie Laurent" class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm text-slate-charcoal focus:outline-none focus:ring-2 focus:ring-balbux-accent focus:border-transparent transition-all">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-balbux-emerald"></span>
+                  <p class="font-bold text-sm text-balbux-deep">Jean Buxassa</p>
+                </div>
+                <p class="text-[11px] text-slate-stone mt-0.5">Direction & Développement Commercial</p>
+                <a href="mailto:jbuxassa@balbux.com" class="text-xs text-balbux-accent hover:underline font-mono mt-1 inline-block">
+                  jbuxassa@balbux.com
+                </a>
               </div>
+              <div class="flex items-center gap-2 self-start sm:self-center">
+                <button 
+                  onclick="window.copyToClipboard('jbuxassa@balbux.com', this)" 
+                  class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-cream-sand/80 border border-stone-300 hover:bg-stone-100 transition-colors text-slate-charcoal shadow-2xs cursor-pointer flex items-center gap-1.5"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                  </svg>
+                  <span>Copier</span>
+                </button>
+                <a 
+                  href="mailto:jbuxassa@balbux.com" 
+                  class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-balbux-deep text-white hover:bg-balbux-forest transition-colors shadow-2xs"
+                >
+                  Écrire
+                </a>
+              </div>
+            </div>
+
+            <!-- Roberto Balcázar -->
+            <div class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <label for="company" class="block text-xs font-semibold uppercase tracking-wider text-slate-stone mb-2">Société / Distributeur *</label>
-                <input type="text" id="company" required placeholder="Nom de l'entité" class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm text-slate-charcoal focus:outline-none focus:ring-2 focus:ring-balbux-accent focus:border-transparent transition-all">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-gold-dark"></span>
+                  <p class="font-bold text-sm text-balbux-deep">Roberto Balcázar</p>
+                </div>
+                <p class="text-[11px] text-slate-stone mt-0.5">Sourcing Origine & Filières Andines</p>
+                <a href="mailto:rbalcazar@balbux.com" class="text-xs text-balbux-accent hover:underline font-mono mt-1 inline-block">
+                  rbalcazar@balbux.com
+                </a>
+              </div>
+              <div class="flex items-center gap-2 self-start sm:self-center">
+                <button 
+                  onclick="window.copyToClipboard('rbalcazar@balbux.com', this)" 
+                  class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-cream-sand/80 border border-stone-300 hover:bg-stone-100 transition-colors text-slate-charcoal shadow-2xs cursor-pointer flex items-center gap-1.5"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                  </svg>
+                  <span>Copier</span>
+                </button>
+                <a 
+                  href="mailto:rbalcazar@balbux.com" 
+                  class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-balbux-deep text-white hover:bg-balbux-forest transition-colors shadow-2xs"
+                >
+                  Écrire
+                </a>
               </div>
             </div>
+          </div>
 
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-stone mb-2">Email professionnel *</label>
-                <input type="email" id="email" required placeholder="m.laurent@distrib.fr" class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm text-slate-charcoal focus:outline-none focus:ring-2 focus:ring-balbux-accent focus:border-transparent transition-all">
-              </div>
-              <div>
-                <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-stone mb-2">Téléphone</label>
-                <input type="tel" id="phone" placeholder="+33 6 12 34 56 78" class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm text-slate-charcoal focus:outline-none focus:ring-2 focus:ring-balbux-accent focus:border-transparent transition-all">
-              </div>
-            </div>
-
-            <div>
-              <label for="interest" class="block text-xs font-semibold uppercase tracking-wider text-slate-stone mb-2">Centre d'Intérêt</label>
-              <select id="interest" class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm text-slate-charcoal focus:outline-none focus:ring-2 focus:ring-balbux-accent focus:border-transparent transition-all">
-                <option value="retail">Distribution Retail / GMS</option>
-                <option value="bio">Réseau Bio / Épiceries Fines</option>
-                <option value="private-label">Marque Blanche / Private Label</option>
-                <option value="representation">Représentation Commerciale</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-stone mb-2">Message / Demande</label>
-              <textarea id="message" rows="4" placeholder="Décrivez vos besoins ou prévisions de volumes..." class="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-sm text-slate-charcoal focus:outline-none focus:ring-2 focus:ring-balbux-accent focus:border-transparent transition-all resize-none"></textarea>
-            </div>
-
-            <div id="formFeedback" class="hidden p-4 rounded-xl bg-balbux-soft text-balbux-deep text-xs font-semibold border border-balbux-forest/20">
-              ✓ Demande reçue. Notre département commercial vous contactera sous 24h ouvrées.
-            </div>
-
-            <button type="submit" class="w-full py-4 rounded-xl bg-balbux-deep text-white font-bold text-xs uppercase tracking-wider hover:bg-balbux-forest transition-all shadow-md cursor-pointer">
-              Envoyer la demande B2B
-            </button>
-          </form>
+          <!-- Direct response commitment -->
+          <div class="pt-4 border-t border-stone-200/80 flex items-center gap-3 text-xs text-slate-stone">
+            <span class="w-2 h-2 rounded-full bg-balbux-accent"></span>
+            <span>Réponse directe et personnalisée garantie sous 24h à 48h ouvrées.</span>
+          </div>
         </div>
       </div>
 
@@ -134,21 +133,3 @@
 
   </div>
 </section>
-
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('b2bContactForm');
-    const feedback = document.getElementById('formFeedback');
-
-    if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (feedback) feedback.classList.remove('hidden');
-        contactForm.reset();
-        if (window.showToast) {
-          window.showToast('Demande envoyée avec succès');
-        }
-      });
-    }
-  });
-</script>
