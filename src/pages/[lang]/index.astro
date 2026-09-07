@@ -1,0 +1,34 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import Histoire from "../../components/Histoire.astro";
+import Vision from "../../components/Vision.astro";
+import Pilares from "../../components/Pilares.astro";
+import Qori from "../../components/Qori.astro";
+import Contacto from "../../components/Contacto.astro";
+import Footer from "../../components/Footer.astro";
+import type { Lang } from "../../i18n/ui";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'es' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+---
+
+<Layout lang={lang}>
+	<Header />
+	<main class="flex-grow">
+		<Hero />
+		<Histoire />
+		<Vision />
+		<Pilares />
+		<Qori />
+		<Contacto />
+	</main>
+	<Footer />
+</Layout>

@@ -1,135 +1,201 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<section id="contact" class="py-20 lg:py-24 bg-white border-t border-stone-200 scroll-mt-16">
+<section
+  id="contact"
+  class="py-20 lg:py-24 bg-white border-t border-stone-200 scroll-mt-16"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
     <!-- Section Header -->
     <div class="max-w-3xl mx-auto text-center mb-16">
-      <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark">Réseau B2B & Corporate</span>
-      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-balbux-deep mt-2">
-        Initiez le dialogue avec BalBux
+      <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark"
+        >{t("contact.tag")}</span
+      >
+      <h2
+        class="text-3xl sm:text-4xl font-serif font-bold text-balbux-deep mt-2"
+      >
+        {t("contact.title")}
       </h2>
       <p class="text-base text-slate-stone mt-4 leading-relaxed font-light">
-        Pour toute demande de distribution, alliance d'importation ou projet de développement de marque en Europe, notre direction générale est à votre écoute directe.
+        {t("contact.lead")}
       </p>
     </div>
 
     <!-- Content Grid: 2 balanced columns -->
-    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
-      
+    <div
+      class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto"
+    >
       <!-- Left Column: Visual & Legal Details -->
       <div class="lg:col-span-6 space-y-6">
-        <div class="rounded-3xl overflow-hidden shadow-lg border border-stone-200">
-          <img 
-            src="/images/b2b_meeting.jpg" 
-            alt="Réunion d'affaires B2B BalBux" 
-            class="w-full h-64 sm:h-72 object-cover" 
-            loading="lazy" 
+        <div
+          class="rounded-3xl overflow-hidden shadow-lg border border-stone-200"
+        >
+          <img
+            src="/images/b2b_meeting.jpg"
+            alt={t("contact.img.alt")}
+            class="w-full h-64 sm:h-72 object-cover"
+            loading="lazy"
           />
         </div>
 
         <!-- Headquarters Details -->
-        <div class="p-6 rounded-3xl bg-cream-sand/60 border border-stone-200 space-y-3 text-xs text-slate-stone shadow-xs">
-          <p class="font-bold text-sm text-balbux-deep">Siège & Enregistrement France :</p>
+        <div
+          class="p-6 rounded-3xl bg-cream-sand/60 border border-stone-200 space-y-3 text-xs text-slate-stone shadow-xs"
+        >
+          <p class="font-bold text-sm text-balbux-deep">
+            {t("contact.legal.title")}
+          </p>
           <p class="flex items-center gap-2">
             <span>📍</span>
-            <span>189 route de Lyon, 38390 Porcieu-Amblagnieu, France</span>
+            <span>{t("contact.legal.address")}</span>
           </p>
           <p class="flex items-center gap-2">
             <span>📑</span>
-            <span>SIREN 824 597 819 · RNE 27/12/2016</span>
+            <span>{t("contact.legal.reg")}</span>
           </p>
           <p class="flex items-center gap-2 font-medium text-balbux-deep">
             <span>🌐</span>
-            <a href="https://www.balbux.com" target="_blank" rel="noopener noreferrer" class="hover:underline">www.balbux.com</a>
+            <a
+              href="https://www.balbux.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:underline">www.balbux.com</a
+            >
           </p>
         </div>
       </div>
 
       <!-- Right Column: Direct Contacts -->
       <div class="lg:col-span-6 space-y-6">
-        <div class="p-8 rounded-3xl bg-cream-sand/40 border border-stone-200 shadow-sm space-y-6">
+        <div
+          class="p-8 rounded-3xl bg-cream-sand/40 border border-stone-200 shadow-sm space-y-6"
+        >
           <div>
-            <h3 class="text-xl font-serif font-bold text-balbux-deep">Équipe de Direction</h3>
+            <h3 class="text-xl font-serif font-bold text-balbux-deep">
+              {t("contact.team.title")}
+            </h3>
             <p class="text-xs text-slate-stone mt-1">
-              Contactez directement les fondateurs pour initier vos projets commerciaux ou logistiques.
+              {t("contact.team.desc")}
             </p>
           </div>
 
           <div class="space-y-4">
             <!-- Jean Buxassa -->
-            <div class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div
+              class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+            >
               <div>
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-balbux-emerald"></span>
                   <p class="font-bold text-sm text-balbux-deep">Jean Buxassa</p>
                 </div>
-                <p class="text-[11px] text-slate-stone mt-0.5">Direction & Développement Commercial</p>
-                <a href="mailto:jbuxassa@balbux.com" class="text-xs text-balbux-accent hover:underline font-mono mt-1 inline-block">
-                  jbuxassa@balbux.com
+                <p class="text-[11px] text-slate-stone mt-0.5">
+                  {t("contact.team.jean.role")}
+                </p>
+                <a
+                  href="mailto:jeanbuxassa@balbux.com"
+                  class="text-xs text-balbux-accent hover:underline font-mono mt-1 inline-block"
+                >
+                  jeanbuxassa@balbux.com
                 </a>
               </div>
               <div class="flex items-center gap-2 self-start sm:self-center">
-                <button 
-                  onclick="window.copyToClipboard('jbuxassa@balbux.com', this)" 
+                <button
+                  type="button"
+                  data-copied-text={t("contact.btn.copied")}
+                  onclick="window.copyToClipboard('jeanbuxassa@balbux.com', this)"
                   class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-cream-sand/80 border border-stone-300 hover:bg-stone-100 transition-colors text-slate-charcoal shadow-2xs cursor-pointer flex items-center gap-1.5"
                 >
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+                    ></path>
                   </svg>
-                  <span>Copier</span>
+                  <span>{t("contact.btn.copy")}</span>
                 </button>
-                <a 
-                  href="mailto:jbuxassa@balbux.com" 
+                <a
+                  href="mailto:jbuxassa@balbux.com"
                   class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-balbux-deep text-white hover:bg-balbux-forest transition-colors shadow-2xs"
                 >
-                  Écrire
+                  {t("contact.btn.write")}
                 </a>
               </div>
             </div>
 
             <!-- Roberto Balcázar -->
-            <div class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div
+              class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+            >
               <div>
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-gold-dark"></span>
-                  <p class="font-bold text-sm text-balbux-deep">Roberto Balcázar</p>
+                  <p class="font-bold text-sm text-balbux-deep">
+                    Roberto Balcázar
+                  </p>
                 </div>
-                <p class="text-[11px] text-slate-stone mt-0.5">Sourcing Origine & Filières Andines</p>
-                <a href="mailto:rbalcazar@balbux.com" class="text-xs text-balbux-accent hover:underline font-mono mt-1 inline-block">
-                  rbalcazar@balbux.com
+                <p class="text-[11px] text-slate-stone mt-0.5">
+                  {t("contact.team.roberto.role")}
+                </p>
+                <a
+                  href="mailto:robertobalcazar@balbux.com"
+                  class="text-xs text-balbux-accent hover:underline font-mono mt-1 inline-block"
+                >
+                  robertobalcazar@balbux.com
                 </a>
               </div>
               <div class="flex items-center gap-2 self-start sm:self-center">
-                <button 
-                  onclick="window.copyToClipboard('rbalcazar@balbux.com', this)" 
+                <button
+                  type="button"
+                  data-copied-text={t("contact.btn.copied")}
+                  onclick="window.copyToClipboard('robertobalcazar@balbux.com', this)"
                   class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-cream-sand/80 border border-stone-300 hover:bg-stone-100 transition-colors text-slate-charcoal shadow-2xs cursor-pointer flex items-center gap-1.5"
                 >
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+                    ></path>
                   </svg>
-                  <span>Copier</span>
+                  <span>{t("contact.btn.copy")}</span>
                 </button>
-                <a 
-                  href="mailto:rbalcazar@balbux.com" 
+                <a
+                  href="mailto:rbalcazar@balbux.com"
                   class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-balbux-deep text-white hover:bg-balbux-forest transition-colors shadow-2xs"
                 >
-                  Écrire
+                  {t("contact.btn.write")}
                 </a>
               </div>
             </div>
           </div>
 
           <!-- Direct response commitment -->
-          <div class="pt-4 border-t border-stone-200/80 flex items-center gap-3 text-xs text-slate-stone">
+          <div
+            class="pt-4 border-t border-stone-200/80 flex items-center gap-3 text-xs text-slate-stone"
+          >
             <span class="w-2 h-2 rounded-full bg-balbux-accent"></span>
-            <span>Réponse directe et personnalisée garantie sous 24h à 48h ouvrées.</span>
+            <span>{t("contact.sla")}</span>
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
 </section>

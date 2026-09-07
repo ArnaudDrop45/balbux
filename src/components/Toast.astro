@@ -1,9 +1,17 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 px-4 py-3 rounded-xl bg-balbux-deep text-white text-xs font-semibold shadow-xl border border-white/10 flex items-center gap-2 pointer-events-none">
+<div 
+  id="toast" 
+  data-prefix={t('toast.copied')} 
+  class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 px-4 py-3 rounded-xl bg-balbux-deep text-white text-xs font-semibold shadow-xl border border-white/10 flex items-center gap-2 pointer-events-none"
+>
   <span class="text-gold-badge font-bold">✓</span>
-  <span id="toastMessage">Texte copié</span>
+  <span id="toastMessage">{t('toast.copied')}</span>
 </div>
 
 <script is:inline>
@@ -29,12 +37,16 @@
     document.body.appendChild(tempInput);
     tempInput.select();
     
+    const toastEl = document.getElementById('toast');
+    const prefix = toastEl?.getAttribute('data-prefix') || 'Email copié : ';
+
     try {
       document.execCommand('copy');
-      window.showToast(`Email copié : ${text}`);
+      window.showToast(`${prefix}${text}`);
       if (btnElement) {
         const originalText = btnElement.innerText;
-        btnElement.innerText = 'Copié !';
+        const copiedLabel = btnElement.getAttribute('data-copied-text') || '✓';
+        btnElement.innerText = copiedLabel;
         btnElement.classList.add('bg-balbux-soft', 'text-balbux-deep');
         setTimeout(() => {
           btnElement.innerText = originalText;

@@ -1,24 +1,37 @@
 ---
 import '../styles/global.css';
 import Toast from '../components/Toast.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
 
 interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
 	canonicalURL?: string;
+	lang?: Lang;
 }
 
+const currentLang = Astro.props.lang || getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
 const {
-	title = 'BalBux Group | Real Food. Real Impact. — Perú & Europa',
-	description = 'BalBux conecta productores y marcas andinas con el retail premium europeo. Distribución, representación y desarrollo de marca.',
+	title = t('meta.title'),
+	description = t('meta.description'),
 	image = '/images/default-og.png',
 	canonicalURL = Astro.url.href,
 } = Astro.props;
+
+const origin = Astro.site ? Astro.site.origin : Astro.url.origin;
+const localeMap = {
+	fr: 'fr_FR',
+	es: 'es_ES',
+	en: 'en_US',
+};
 ---
 
 <!doctype html>
-<html lang="fr" class="scroll-smooth">
+<html lang={currentLang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,8 +47,12 @@ const {
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
 
-		<!-- Canonical URL -->
+		<!-- Canonical URL & Hreflang Alternates -->
 		<link rel="canonical" href={canonicalURL} />
+		<link rel="alternate" hreflang="fr" href={`${origin}/`} />
+		<link rel="alternate" hreflang="es" href={`${origin}/es/`} />
+		<link rel="alternate" hreflang="en" href={`${origin}/en/`} />
+		<link rel="alternate" hreflang="x-default" href={`${origin}/`} />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
@@ -43,6 +60,7 @@ const {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:locale" content={localeMap[currentLang] || 'fr_FR'} />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />

@@ -1,32 +1,37 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="bg-balbux-deep text-stone-300 border-t border-balbux-forest py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
       
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-balbux-forest text-gold-badge flex items-center justify-center font-serif font-bold">
-          B
-        </div>
-        <span class="text-xl font-serif font-bold text-white tracking-wide">BalBux France</span>
-      </div>
+      <a href="#hero" class="flex items-center group">
+        <img 
+          src="/images/logo-balbux.webp" 
+          alt="BalBux - Scaling Brands in Europe" 
+          class="h-10 w-auto object-contain rounded-lg group-hover:opacity-90 transition-opacity" 
+        />
+      </a>
 
       <p class="text-xs uppercase tracking-[0.25em] font-medium text-gold-badge">
-        balbux • REAL FOOD. REAL IMPACT.
+        {t('footer.claim')}
       </p>
 
       <div class="flex items-center gap-6 text-xs text-stone-400">
-        <a href="#hero" class="hover:text-white transition-colors duration-200">Accueil</a>
-        <a href="#histoire" class="hover:text-white transition-colors duration-200">Histoire</a>
-        <a href="#vision" class="hover:text-white transition-colors duration-200">Vision</a>
-        <a href="#qori" class="hover:text-white transition-colors duration-200">Gamme QŌRI</a>
-        <a href="#contact" class="hover:text-white transition-colors duration-200">Contact</a>
+        <a href="#hero" class="hover:text-white transition-colors duration-200">{t('footer.nav.home')}</a>
+        <a href="#histoire" class="hover:text-white transition-colors duration-200">{t('footer.nav.histoire')}</a>
+        <a href="#vision" class="hover:text-white transition-colors duration-200">{t('footer.nav.vision')}</a>
+        <a href="#qori" class="hover:text-white transition-colors duration-200">{t('footer.nav.qori')}</a>
+        <a href="#contact" class="hover:text-white transition-colors duration-200">{t('footer.nav.contact')}</a>
       </div>
     </div>
 
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
-      <p>© 2026 BalBux Group. Tous droits réservés.</p>
+      <p>{t('footer.rights')}</p>
       <p>189 route de Lyon, 38390 Porcieu-Amblagnieu, France · SIREN 824 597 819</p>
     </div>
   </div>

@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="pilares" class="py-20 bg-balbux-deep text-white relative">
@@ -6,11 +10,11 @@
     
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
       <div>
-        <span class="text-xs uppercase tracking-[0.3em] font-semibold text-gold-badge">Méthodologie de Développement</span>
-        <h2 class="text-3xl sm:text-4xl font-serif font-bold mt-2 text-white">Les 3 Piliers de l'Écosystème</h2>
+        <span class="text-xs uppercase tracking-[0.3em] font-semibold text-gold-badge">{t('pilares.tag')}</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold mt-2 text-white">{t('pilares.title')}</h2>
       </div>
       <p class="text-sm text-stone-300 max-w-md font-light">
-        Une structure conçue pour générer des avantages compétitifs durables, tant pour l'agriculteur que pour la grande distribution.
+        {t('pilares.lead')}
       </p>
     </div>
 
@@ -26,9 +30,9 @@
             </svg>
           </div>
         </div>
-        <h3 class="text-lg font-bold uppercase tracking-wider mb-2 text-white group-hover:text-gold-badge transition-colors duration-300">ORIGINE</h3>
+        <h3 class="text-lg font-bold uppercase tracking-wider mb-2 text-white group-hover:text-gold-badge transition-colors duration-300">{t('pilares.p1.title')}</h3>
         <p class="text-sm text-stone-300 leading-relaxed font-light">
-          Le Pérou comme source d'ingrédients andins avec une identité singulière. Sauvetage de variétés ancestrales de quinoa produites sur des terres d'altitude.
+          {t('pilares.p1.text')}
         </p>
       </div>
 
@@ -42,9 +46,9 @@
             </svg>
           </div>
         </div>
-        <h3 class="text-lg font-bold uppercase tracking-wider mb-2 text-white group-hover:text-gold-badge transition-colors duration-300">VALEUR</h3>
+        <h3 class="text-lg font-bold uppercase tracking-wider mb-2 text-white group-hover:text-gold-badge transition-colors duration-300">{t('pilares.p2.title')}</h3>
         <p class="text-sm text-stone-300 leading-relaxed font-light">
-          Des produits différenciés pour le retail premium et l'alimentation saine. Une catégorie innovante qui dépasse le concept traditionnel des pâtes avec une meilleure marge et rotation.
+          {t('pilares.p2.text')}
         </p>
       </div>
 
@@ -58,9 +62,9 @@
             </svg>
           </div>
         </div>
-        <h3 class="text-lg font-bold uppercase tracking-wider mb-2 text-white group-hover:text-gold-badge transition-colors duration-300">IMPACT</h3>
+        <h3 class="text-lg font-bold uppercase tracking-wider mb-2 text-white group-hover:text-gold-badge transition-colors duration-300">{t('pilares.p3.title')}</h3>
         <p class="text-sm text-stone-300 leading-relaxed font-light">
-          Une chaîne commerciale qui vise à générer de la valeur directe depuis l'agriculteur, en stabilisant les prix d'achat et en intégrant les familles paysannes dans le commerce extérieur.
+          {t('pilares.p3.text')}
         </p>
       </div>
 
@@ -68,16 +72,16 @@
 
     <!-- Supply Chain Diagram -->
     <div class="rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-12 shadow-2xl p-4 sm:p-8 flex justify-center">
-      <img src="/images/eu_supply_chain.jpg" alt="Chaîne d'approvisionnement agroalimentaire européenne" class="w-full max-w-4xl h-auto rounded-2xl" loading="lazy" />
+      <img src="/images/eu_supply_chain.jpg" alt={t('pilares.img.alt')} class="w-full max-w-4xl h-auto rounded-2xl" loading="lazy" />
     </div>
 
     <!-- Bottom Banner in Pillar Section -->
     <div class="p-6 rounded-2xl bg-white/5 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
       <p class="text-sm font-medium text-stone-200">
-        Intéressé pour intégrer des références andines de haute valeur dans votre catalogue de distribution ?
+        {t('pilares.banner.text')}
       </p>
       <a href="mailto:jbuxassa@balbux.com" class="px-6 py-2.5 rounded-full bg-gold-badge text-balbux-deep font-bold text-xs uppercase tracking-wider hover:bg-gold-light transition-all duration-300 shadow-sm whitespace-nowrap">
-        Écrire à la Direction
+        {t('pilares.banner.btn')}
       </a>
     </div>
 

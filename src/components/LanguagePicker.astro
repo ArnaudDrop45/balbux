@@ -1,0 +1,128 @@
+---
+import { languages, type Lang } from '../i18n/ui';
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+
+interface Props {
+  mobile?: boolean;
+}
+
+const { mobile = false } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(currentLang);
+
+// Language labels and flags
+const langData: Record<Lang, { label: string; short: string; flag: string }> = {
+  fr: { label: 'Français', short: 'FR', flag: '🇫🇷' },
+  es: { label: 'Español', short: 'ES', flag: '🇪🇸' },
+  en: { label: 'English', short: 'EN', flag: '🇬🇧' },
+};
+
+const currentInfo = langData[currentLang];
+---
+
+{mobile ? (
+  <!-- Mobile Segmented Selector -->
+  <div class="pt-2 pb-1">
+    <p class="text-[11px] uppercase tracking-wider font-semibold text-slate-stone/80 mb-2 px-1">
+      {currentLang === 'es' ? 'Idioma' : currentLang === 'en' ? 'Language' : 'Langue'}
+    </p>
+    <div class="grid grid-cols-3 gap-1.5 p-1 bg-stone-200/60 rounded-xl">
+      {Object.entries(languages).map(([langKey, langName]) => {
+        const lang = langKey as Lang;
+        const isActive = lang === currentLang;
+        const targetUrl = translatePath('/', lang);
+        return (
+          <a
+            href={targetUrl}
+            data-lang-link
+            class={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg text-xs font-semibold transition-all duration-200 ${
+              isActive
+                ? 'bg-white text-balbux-deep shadow-xs'
+                : 'text-slate-stone hover:text-balbux-deep hover:bg-white/50'
+            }`}
+            aria-current={isActive ? 'true' : undefined}
+          >
+            <span>{langData[lang].flag}</span>
+            <span>{langData[lang].short}</span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+) : (
+  <!-- Desktop Details/Summary Dropdown Selector -->
+  <details class="relative inline-block text-left group" id="desktopLangPicker">
+    <summary
+      class="list-none select-none inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-stone hover:text-balbux-deep bg-white/90 hover:bg-white border border-stone-200/90 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer [&::-webkit-details-marker]:hidden"
+    >
+      <span class="text-sm leading-none">{currentInfo.flag}</span>
+      <span class="tracking-wide">{currentInfo.short}</span>
+      <svg class="w-3.5 h-3.5 text-slate-stone/70 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </summary>
+
+    <!-- Dropdown Menu -->
+    <div
+      class="absolute right-0 mt-2 w-36 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl border border-stone-200/90 py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150 origin-top-right"
+      role="menu"
+    >
+      {Object.entries(languages).map(([langKey, langName]) => {
+        const lang = langKey as Lang;
+        const isActive = lang === currentLang;
+        const targetUrl = translatePath('/', lang);
+        return (
+          <a
+            href={targetUrl}
+            data-lang-link
+            role="menuitem"
+            class={`flex items-center justify-between px-3.5 py-2 text-xs font-medium transition-colors ${
+              isActive
+                ? 'bg-balbux-soft/80 text-balbux-deep font-semibold'
+                : 'text-slate-stone hover:bg-cream-sand hover:text-balbux-deep'
+            }`}
+          >
+            <span class="flex items-center gap-2">
+              <span>{langData[lang].flag}</span>
+              <span>{langName}</span>
+            </span>
+            {isActive && (
+              <span class="text-balbux-accent text-[11px] font-bold">✓</span>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </details>
+)}
+
+<script is:inline>
+  (() => {
+    // Close dropdown on click outside or escape
+    document.addEventListener('click', (e) => {
+      const details = document.getElementById('desktopLangPicker');
+      if (details && details.hasAttribute('open') && !details.contains(e.target)) {
+        details.removeAttribute('open');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const details = document.getElementById('desktopLangPicker');
+        if (details) details.removeAttribute('open');
+      }
+    });
+
+    // Preserve section anchor if on a section
+    document.querySelectorAll('a[data-lang-link]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.location.hash) {
+          const href = link.getAttribute('href');
+          if (href && !href.includes('#')) {
+            link.setAttribute('href', href + window.location.hash);
+          }
+        }
+      });
+    });
+  })();
+</script>

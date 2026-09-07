@@ -1,56 +1,152 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const badges = [
+  { img: "/images/logo-bio.webp", title: t("qori.badge.bio"), desc: t("qori.badge.bio.desc") },
+  { img: "/images/logo-gluten-free.webp", title: t("qori.badge.glutenfree"), desc: t("qori.badge.glutenfree.desc") },
+  { img: "/images/logo-vegan.webp", title: t("qori.badge.vegan"), desc: t("qori.badge.vegan.desc") },
+  { img: "/images/logo-ogm.webp", title: t("qori.badge.ogm"), desc: t("qori.badge.ogm.desc") },
+  { img: "/images/logo-colorants.webp", title: t("qori.badge.colorants"), desc: t("qori.badge.colorants.desc") },
+  { img: "/images/logo-proteins.webp", title: t("qori.badge.proteins"), desc: t("qori.badge.proteins.desc") },
+  { img: "/images/logo-fer.webp", title: t("qori.badge.iron"), desc: t("qori.badge.iron.desc") },
+  { img: "/images/logo-vitamins.webp", title: t("qori.badge.vitamins"), desc: t("qori.badge.vitamins.desc") },
+];
 ---
 
 <section id="qori" class="py-24 bg-cream-sand/50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
     <div class="max-w-3xl mb-16">
-      <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark">Référence Phare</span>
-      <h2 class="text-3xl sm:text-5xl font-serif font-bold text-balbux-deep mt-2">
-        QŌRI · Pâtes avec 75% de Quinoa Bio
+      <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark"
+        >{t("qori.tag")}</span
+      >
+      <h2
+        class="text-3xl sm:text-5xl font-serif font-bold text-balbux-deep mt-2"
+      >
+        {t("qori.title")}
       </h2>
       <p class="text-base text-slate-stone mt-4">
-        Une alternative gourmet, sans gluten et riche en protéines pour les consommateurs modernes qui recherchent une nutrition authentique sans sacrifier la texture ni la saveur.
+        {t("qori.lead")}
       </p>
     </div>
 
     <!-- Product Range Global Display -->
-    <div class="w-full mb-16 rounded-3xl overflow-hidden shadow-lg border border-stone-200">
-      <img src="/images/products_display.jpg" alt="Vue d'ensemble de la gamme de produits BalBux" class="w-full h-auto object-cover" loading="lazy" />
+    <div
+      class="w-full mb-16 rounded-3xl overflow-hidden shadow-lg border border-stone-200"
+    >
+      <img
+        src="/images/quori-banner.webp"
+        alt={t("qori.img.alt")}
+        class="w-full h-auto object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Certifications & Nutrition Badges -->
+    <div class="mb-16 bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-stone-200/90 shadow-sm">
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark">
+          {t("qori.badges.title")}
+        </span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
+        {badges.map((badge) => (
+          <div class="p-3.5 rounded-2xl bg-cream-sand/60 hover:bg-white border border-stone-200/80 hover:border-balbux-accent/40 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group">
+            <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden flex items-center justify-center p-1 mb-2.5 bg-white/90 shadow-2xs group-hover:scale-105 transition-transform duration-300">
+              <img
+                src={badge.img}
+                alt={badge.title}
+                class="w-full h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-xs font-bold text-balbux-deep leading-tight">
+              {badge.title}
+            </p>
+            <p class="text-[10px] text-slate-stone mt-1 line-clamp-2 leading-tight">
+              {badge.desc}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
 
     <div class="grid lg:grid-cols-12 gap-8 items-center">
-      
       <!-- Product Showcase Card -->
-      <div class="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-stone-200 custom-shadow">
-        <div class="flex items-center justify-between pb-6 border-b border-stone-200">
+      <div
+        class="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-stone-200 custom-shadow"
+      >
+        <div
+          class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 gap-4"
+        >
           <div>
-            <span class="text-xs font-bold text-balbux-accent tracking-wider uppercase">Lancement Retail</span>
-            <h3 class="text-2xl font-serif font-bold text-balbux-deep">Gamme QŌRI 250 g</h3>
+            <span
+              class="text-xs font-bold text-balbux-accent tracking-wider uppercase"
+              >{t("qori.card.badge")}</span
+            >
+            <h3 class="text-2xl font-serif font-bold text-balbux-deep">
+              {t("qori.card.title")}
+            </h3>
           </div>
-          <span class="px-3 py-1 rounded-full bg-balbux-soft text-balbux-deep font-semibold text-xs border border-balbux-forest/10">
-            Format 250g
-          </span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span
+              class="px-3 py-1 rounded-full bg-balbux-soft text-balbux-deep font-semibold text-xs border border-balbux-forest/10"
+            >
+              {t("qori.card.format")}
+            </span>
+            <span
+              class="px-3 py-1 rounded-full bg-cream-sand text-balbux-deep font-medium text-xs border border-stone-200/90 shadow-2xs"
+            >
+              {t("qori.variant1.name")}
+            </span>
+            <span
+              class="px-3 py-1 rounded-full bg-cream-sand text-balbux-deep font-medium text-xs border border-stone-200/90 shadow-2xs"
+            >
+              {t("qori.variant2.name")}
+            </span>
+          </div>
         </div>
 
         <div class="py-8 space-y-6">
           <!-- Product Variants list -->
           <div class="grid sm:grid-cols-2 gap-4">
             <!-- Variant 1 -->
-            <div class="p-4 rounded-xl bg-cream-sand border border-stone-200 flex items-center gap-3">
-              <div class="w-8 h-8 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-xs">🌾</div>
+            <div
+              class="p-4 rounded-xl bg-cream-sand border border-stone-200 flex items-center gap-3"
+            >
+              <div
+                class="w-8 h-8 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-xs"
+              >
+                🌾
+              </div>
               <div>
-                <h4 class="text-sm font-bold text-balbux-deep">Quinoa Blanche</h4>
-                <p class="text-xs text-slate-stone">Saveur douce et texture al dente</p>
+                <h4 class="text-sm font-bold text-balbux-deep">
+                  {t("qori.variant1.name")}
+                </h4>
+                <p class="text-xs text-slate-stone">
+                  {t("qori.variant1.desc")}
+                </p>
               </div>
             </div>
 
             <!-- Variant 2 -->
-            <div class="p-4 rounded-xl bg-cream-sand border border-stone-200 flex items-center gap-3">
-              <div class="w-8 h-8 rounded-full bg-amber-800/20 border border-amber-800/40 flex items-center justify-center text-xs">🍂</div>
+            <div
+              class="p-4 rounded-xl bg-cream-sand border border-stone-200 flex items-center gap-3"
+            >
+              <div
+                class="w-8 h-8 rounded-full bg-amber-800/20 border border-amber-800/40 flex items-center justify-center text-xs"
+              >
+                🍂
+              </div>
               <div>
-                <h4 class="text-sm font-bold text-balbux-deep">Quinoa Tricolore</h4>
-                <p class="text-xs text-slate-stone">Mélange blanc, rouge et noir</p>
+                <h4 class="text-sm font-bold text-balbux-deep">
+                  {t("qori.variant2.name")}
+                </h4>
+                <p class="text-xs text-slate-stone">
+                  {t("qori.variant2.desc")}
+                </p>
               </div>
             </div>
           </div>
@@ -58,53 +154,82 @@
           <!-- Features -->
           <ul class="space-y-3 text-sm text-slate-stone pt-2">
             <li class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-balbux-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              <svg
+                class="w-5 h-5 text-balbux-accent flex-shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
               </svg>
-              <span><strong class="font-semibold text-balbux-deep">75% de quinoa andine bio</strong> certifiée</span>
+              <span set:html={t("qori.feature1")} />
             </li>
             <li class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-balbux-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              <svg
+                class="w-5 h-5 text-balbux-accent flex-shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
               </svg>
-              <span>Profil complet en acides aminés essentiels</span>
+              <span>{t("qori.feature2")}</span>
             </li>
             <li class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-balbux-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              <svg
+                class="w-5 h-5 text-balbux-accent flex-shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
               </svg>
-              <span>Conditionné et prêt pour la distribution en GMS et réseau bio</span>
+              <span>{t("qori.feature3")}</span>
             </li>
           </ul>
         </div>
 
-        <div class="pt-6 border-t border-stone-200 flex flex-wrap gap-4 items-center justify-between">
-          <span class="text-xs text-slate-stone">Fiche technique et échantillons sur demande auprès de la direction commerciale.</span>
+        <div
+          class="pt-6 border-t border-stone-200 flex flex-wrap gap-4 items-center justify-between"
+        >
+          <span class="text-xs text-slate-stone">{t("qori.card.footer")}</span>
         </div>
       </div>
 
       <!-- Product Specs & Retail positioning -->
       <div class="lg:col-span-6 space-y-6">
         <div class="p-8 rounded-3xl bg-white border border-stone-200 shadow-sm">
-          <h4 class="text-lg font-serif font-bold text-balbux-deep mb-4">Pourquoi QŌRI dans votre rayon ?</h4>
+          <h4 class="text-lg font-serif font-bold text-balbux-deep mb-4">
+            {t("qori.why.title")}
+          </h4>
           <div class="space-y-4 text-sm text-slate-stone">
-            <div class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-balbux-emerald">
-              <h5 class="font-bold text-balbux-deep">Différenciation immédiate</h5>
-              <p class="text-xs mt-1">Le consommateur européen cherche à réduire le gluten sans recourir aux farines raffinées ou ultra-transformées. QŌRI offre une densité nutritionnelle pure.</p>
+            <div
+              class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-balbux-emerald"
+            >
+              <h5 class="font-bold text-balbux-deep">{t("qori.why1.title")}</h5>
+              <p class="text-xs mt-1">{t("qori.why1.desc")}</p>
             </div>
-            <div class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-gold-badge">
-              <h5 class="font-bold text-balbux-deep">Rotation et marges saines</h5>
-              <p class="text-xs mt-1">Format premium conçu pour des achats d'impulsion réfléchis dans les segments Bio, Gourmet et Alimentation Santé.</p>
+            <div
+              class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-gold-badge"
+            >
+              <h5 class="font-bold text-balbux-deep">{t("qori.why2.title")}</h5>
+              <p class="text-xs mt-1">{t("qori.why2.desc")}</p>
             </div>
-            <div class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-balbux-accent">
-              <h5 class="font-bold text-balbux-deep">Storytelling vérifiable</h5>
-              <p class="text-xs mt-1">Chaque lot bénéficie d'une traçabilité géographique andine, renforçant la fidélisation du consommateur engagé.</p>
+            <div
+              class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-balbux-accent"
+            >
+              <h5 class="font-bold text-balbux-deep">{t("qori.why3.title")}</h5>
+              <p class="text-xs mt-1">{t("qori.why3.desc")}</p>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
 </section>

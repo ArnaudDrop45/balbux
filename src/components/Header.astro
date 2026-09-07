@@ -1,4 +1,10 @@
 ---
+import LanguagePicker from './LanguagePicker.astro';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <header class="w-full border-b border-stone-200/70 bg-cream-sand/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
@@ -6,37 +12,36 @@
     <div class="flex items-center justify-between h-20">
       
       <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-balbux-forest flex items-center justify-center text-gold-badge shadow-md shadow-balbux-deep/10 group-hover:bg-balbux-accent transition-colors duration-300">
-          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="flex items-center gap-1">
-            <span class="text-2xl font-bold tracking-tight text-balbux-deep font-serif">BalBux</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-gold-dark"></span>
-          </div>
-          <p class="text-[10px] tracking-[0.25em] uppercase font-semibold text-slate-stone">France · Europe</p>
-        </div>
+      <a href={translatePath('/')} class="flex items-center group">
+        <img 
+          src="/images/logo-balbux.webp" 
+          alt="BalBux - Scaling Brands in Europe" 
+          class="h-11 sm:h-12 w-auto object-contain rounded-xl shadow-xs group-hover:opacity-95 transition-opacity duration-200" 
+        />
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-stone">
-        <a href="#histoire" class="hover:text-balbux-deep transition-colors duration-200">Notre Histoire</a>
-        <a href="#vision" class="hover:text-balbux-deep transition-colors duration-200">Vision & Mission</a>
-        <a href="#pilares" class="hover:text-balbux-deep transition-colors duration-200">Modèle Économique</a>
-        <a href="#qori" class="hover:text-balbux-deep transition-colors duration-200">Gamme QŌRI</a>
-        <a href="#contact" class="hover:text-balbux-deep transition-colors duration-200">Contact B2B</a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-stone">
+        <a href="#histoire" class="hover:text-balbux-deep transition-colors duration-200">{t('header.nav.histoire')}</a>
+        <a href="#vision" class="hover:text-balbux-deep transition-colors duration-200">{t('header.nav.vision')}</a>
+        <a href="#pilares" class="hover:text-balbux-deep transition-colors duration-200">{t('header.nav.pilares')}</a>
+        <a href="#qori" class="hover:text-balbux-deep transition-colors duration-200">{t('header.nav.qori')}</a>
+        <a href="#contact" class="hover:text-balbux-deep transition-colors duration-200">{t('header.nav.contact')}</a>
       </nav>
 
-      <!-- Right Action Button & Mobile Menu Trigger -->
-      <div class="flex items-center gap-3">
-        <a href="mailto:jbuxassa@balbux.com" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold bg-balbux-deep text-white hover:bg-balbux-forest transition-all duration-300 shadow-sm hover:shadow-md">
-          Écrire à la Direction
+      <!-- Right Action Button & Language Picker -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Language Switcher Desktop -->
+        <div class="hidden sm:block">
+          <LanguagePicker />
+        </div>
+
+        <a href="mailto:jbuxassa@balbux.com" class="hidden sm:inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold bg-balbux-deep text-white hover:bg-balbux-forest transition-all duration-300 shadow-sm hover:shadow-md">
+          {t('header.cta')}
         </a>
+
         <!-- Mobile Menu Trigger -->
-        <button id="mobileMenuBtn" aria-label="Ouvrir le menu" class="md:hidden p-2 rounded-lg text-slate-stone hover:bg-stone-200/50 transition-colors">
+        <button id="mobileMenuBtn" aria-label={t('header.menu.open')} class="lg:hidden p-2 rounded-lg text-slate-stone hover:bg-stone-200/50 transition-colors">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
           </svg>
@@ -46,14 +51,19 @@
   </div>
 
   <!-- Mobile Dropdown -->
-  <div id="mobileMenu" class="hidden md:hidden border-t border-stone-200 bg-cream-sand px-4 pt-3 pb-6 space-y-3">
-    <a href="#histoire" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">Notre Histoire</a>
-    <a href="#vision" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">Vision & Mission</a>
-    <a href="#pilares" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">Modèle Économique</a>
-    <a href="#qori" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">Gamme QŌRI</a>
-    <a href="#contact" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">Contact B2B</a>
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-stone-200 bg-cream-sand px-4 pt-3 pb-6 space-y-3 shadow-lg">
+    <!-- Mobile Language Selector -->
+    <div class="pb-2 border-b border-stone-200/80">
+      <LanguagePicker mobile={true} />
+    </div>
+
+    <a href="#histoire" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">{t('header.nav.histoire')}</a>
+    <a href="#vision" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">{t('header.nav.vision')}</a>
+    <a href="#pilares" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">{t('header.nav.pilares')}</a>
+    <a href="#qori" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">{t('header.nav.qori')}</a>
+    <a href="#contact" class="block py-2 text-sm font-medium text-slate-stone hover:text-balbux-deep transition-colors">{t('header.nav.contact')}</a>
     <a href="mailto:jbuxassa@balbux.com" class="block text-center py-3 mt-2 rounded-xl text-xs uppercase tracking-wider font-semibold bg-balbux-deep text-white hover:bg-balbux-forest transition-all">
-      Écrire à la Direction
+      {t('header.cta')}
     </a>
   </div>
 </header>
