@@ -1,92 +1,46 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="histoire" class="py-24 bg-cream-sand border-y border-stone-200/80">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
-      <!-- Image Section -->
-      <div class="order-2 lg:order-1 relative rounded-3xl overflow-hidden shadow-xl border border-stone-200">
-        <img src="/images/global_routes.png" alt={t('histoire.img1.alt')} class="w-full h-auto object-cover" loading="lazy" />
-      </div>
+<section id="histoire" class="relative overflow-hidden py-20 lg:py-28 bg-cream-sand border-t border-stone-200/80">
+  <!-- Background Image 100vw -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <img
+      src="/images/global_routes.png"
+      alt={t("histoire.img1.alt")}
+      class="w-full h-full object-contain object-center lg:object-right"
+      loading="lazy"
+    />
+    <!-- Subtle natural lighting overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-cream-sand/40 via-transparent to-cream-sand/20"></div>
+  </div>
 
-      <!-- Text Section -->
-      <div class="order-1 lg:order-2 space-y-6">
-        <span class="text-xs tracking-[0.25em] font-bold text-gold-dark uppercase">{t('histoire.tag')}</span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-balbux-deep leading-tight">
-          {t('histoire.title')}
-        </h2>
-        <p class="text-lg text-slate-stone font-medium leading-relaxed">
-          {t('histoire.lead')}
-        </p>
-        <div class="space-y-4 text-sm text-slate-stone font-light leading-relaxed">
-          <p set:html={t('histoire.p1')}></p>
-          <p>{t('histoire.p2')}</p>
-          <p>{t('histoire.p3')}</p>
-          <p>{t('histoire.p4')}</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Expertise Banner -->
-    <div class="bg-balbux-deep text-white rounded-3xl p-10 sm:p-12 mb-20 shadow-2xl relative overflow-hidden">
-      <div class="absolute -right-20 -top-20 w-64 h-64 bg-balbux-forest rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-      
-      <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
-        <div class="lg:col-span-5 space-y-5">
-          <h3 class="text-2xl font-serif font-bold text-gold-light">{t('histoire.banner.title')}</h3>
-          <p class="text-sm text-stone-200 font-light leading-relaxed">
-            {t('histoire.banner.text')}
-          </p>
-        </div>
-        <div class="lg:col-span-7">
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <h4 class="text-xs uppercase tracking-widest text-gold-badge font-bold mb-4">{t('histoire.banner.badge')}</h4>
-            <div class="flex flex-wrap items-center gap-2 text-[10px] sm:text-xs font-semibold text-white tracking-wider">
-              <span>{t('histoire.step.selection')}</span> <span class="text-balbux-accent">→</span>
-              <span>{t('histoire.step.development')}</span> <span class="text-balbux-accent">→</span>
-              <span>{t('histoire.step.importation')}</span> <span class="text-balbux-accent">→</span>
-              <span>{t('histoire.step.compliance')}</span> <span class="text-balbux-accent">→</span>
-              <span>{t('histoire.step.distribution')}</span> <span class="text-balbux-accent">→</span>
-              <span>{t('histoire.step.retail')}</span> <span class="text-balbux-accent">→</span>
-              <span>{t('histoire.step.marketing')}</span> <span class="text-balbux-accent">→</span>
-              <span class="text-gold-light">{t('histoire.step.growth')}</span>
-            </div>
-            <p class="text-xs text-stone-300 mt-4 leading-relaxed font-light">
-              {t('histoire.banner.footer')}
-            </p>
-          </div>
-        </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Text Section wrapped in a frosted card like Hero -->
+    <div class="max-w-2xl lg:max-w-3xl p-6 sm:p-10 rounded-3xl bg-white/92 backdrop-blur-md border border-white/80 shadow-2xl space-y-6">
+      <span
+        class="text-xs tracking-[0.25em] font-bold text-gold-dark uppercase"
+        >{t("histoire.tag")}</span
+      >
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-balbux-deep leading-tight"
+      >
+        {t("histoire.title")}
+      </h2>
+      <p class="text-lg text-slate-stone font-medium leading-relaxed">
+        {t("histoire.lead")}
+      </p>
+      <div class="h-1 w-16 bg-gold-badge rounded-full"></div>
+      <div
+        class="space-y-4 text-sm sm:text-base text-slate-stone font-light leading-relaxed"
+      >
+        <p set:html={t("histoire.p1")} />
+        <p>{t("histoire.p2")}</p>
+        <p>{t("histoire.p3")}</p>
       </div>
     </div>
-
-    <!-- Ambition Section with Infographic -->
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <span class="text-xs tracking-[0.25em] font-bold text-balbux-accent uppercase">{t('histoire.ambition.tag')}</span>
-        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-balbux-deep leading-tight">
-          {t('histoire.ambition.title')}
-        </h3>
-        <div class="space-y-4 text-sm text-slate-stone font-light leading-relaxed">
-          <p>
-            {t('histoire.ambition.p1')}
-          </p>
-          <div class="pl-4 border-l-2 border-gold-badge space-y-2 py-2 text-balbux-deep font-medium">
-            <p>{t('histoire.ambition.item1')}</p>
-            <p>{t('histoire.ambition.item2')}</p>
-            <p>{t('histoire.ambition.item3')}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative rounded-3xl overflow-hidden shadow-lg border border-stone-200">
-        <img src="/images/origin_to_market.jpg" alt={t('histoire.img2.alt')} class="w-full h-auto object-cover" loading="lazy" />
-      </div>
-    </div>
-
   </div>
 </section>

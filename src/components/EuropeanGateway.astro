@@ -1,0 +1,93 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const frenchCities = ["Paris", "Lyon", "Marseille", "Lille", "Bordeaux", "Toulouse"];
+const europeanCountries = [
+  { es: "España", fr: "Espagne", en: "Spain" },
+  { es: "Bélgica", fr: "Belgique", en: "Belgium" },
+  { es: "Suiza", fr: "Suisse", en: "Switzerland" },
+  { es: "Alemania", fr: "Allemagne", en: "Germany" },
+  { es: "Italia", fr: "Italie", en: "Italy" },
+  { es: "Países Bajos", fr: "Pays-Bas", en: "Netherlands" },
+];
+---
+
+<section id="gateway" class="py-20 lg:py-24 bg-cream-sand border-y border-stone-200/80 scroll-mt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Manifesto & Strategic Hubs -->
+      <div class="lg:col-span-6 space-y-8">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-stone-200 shadow-2xs text-xs font-semibold tracking-wider text-gold-dark uppercase">
+            <span class="w-2 h-2 rounded-full bg-balbux-accent"></span>
+            <span>{t('gateway.tag')}</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-balbux-deep tracking-tight leading-tight">
+            {t('gateway.title')}
+          </h2>
+          <div class="h-1 w-16 bg-gold-badge rounded-full"></div>
+          <p class="text-lg text-slate-stone font-medium leading-relaxed pt-1">
+            {t('gateway.lead')}
+          </p>
+        </div>
+
+        <!-- Punchline Quote Card -->
+        <div class="p-6 sm:p-7 rounded-3xl bg-white/90 backdrop-blur-sm border-l-4 border-l-balbux-accent border border-stone-200/80 shadow-md">
+          <p class="text-base sm:text-lg font-serif italic text-balbux-deep leading-relaxed">
+            {t('gateway.quote')}
+          </p>
+        </div>
+
+        <!-- Hubs & Markets -->
+        <div class="space-y-6 pt-2">
+          <!-- French Key Metropolises -->
+          <div class="space-y-3">
+            <p class="text-xs uppercase tracking-widest font-bold text-slate-charcoal flex items-center gap-2">
+              <span>🇫🇷</span>
+              <span>{t('gateway.cities.label')}</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {frenchCities.map((city) => (
+                <span class="px-3.5 py-1.5 rounded-xl bg-white border border-stone-200/90 text-xs font-semibold text-balbux-deep shadow-2xs hover:border-balbux-accent/50 transition-colors">
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- European Target Markets -->
+          <div class="space-y-3">
+            <p class="text-xs uppercase tracking-widest font-bold text-slate-charcoal flex items-center gap-2">
+              <span>🇪🇺</span>
+              <span>{t('gateway.countries.label')}</span>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {europeanCountries.map((country) => (
+                <span class="px-3.5 py-1.5 rounded-xl bg-white/80 border border-stone-200/90 text-xs font-medium text-slate-stone shadow-2xs hover:border-gold-badge transition-colors">
+                  {country[lang]}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: European Supply Chain Map -->
+      <div class="lg:col-span-6">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200 bg-white p-3 sm:p-4 group">
+          <img
+            src="/images/european_gateway.jpg"
+            alt={t('gateway.img.alt')}
+            class="w-full h-auto rounded-2xl object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

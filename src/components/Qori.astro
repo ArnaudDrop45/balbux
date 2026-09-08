@@ -5,14 +5,46 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const badges = [
-  { img: "/images/logo-bio.webp", title: t("qori.badge.bio"), desc: t("qori.badge.bio.desc") },
-  { img: "/images/logo-gluten-free.webp", title: t("qori.badge.glutenfree"), desc: t("qori.badge.glutenfree.desc") },
-  { img: "/images/logo-vegan.webp", title: t("qori.badge.vegan"), desc: t("qori.badge.vegan.desc") },
-  { img: "/images/logo-ogm.webp", title: t("qori.badge.ogm"), desc: t("qori.badge.ogm.desc") },
-  { img: "/images/logo-colorants.webp", title: t("qori.badge.colorants"), desc: t("qori.badge.colorants.desc") },
-  { img: "/images/logo-proteins.webp", title: t("qori.badge.proteins"), desc: t("qori.badge.proteins.desc") },
-  { img: "/images/logo-fer.webp", title: t("qori.badge.iron"), desc: t("qori.badge.iron.desc") },
-  { img: "/images/logo-vitamins.webp", title: t("qori.badge.vitamins"), desc: t("qori.badge.vitamins.desc") },
+  {
+    img: "/images/logo-bio.webp",
+    title: t("qori.badge.bio"),
+    desc: t("qori.badge.bio.desc"),
+  },
+  {
+    img: "/images/logo-gluten-free.webp",
+    title: t("qori.badge.glutenfree"),
+    desc: t("qori.badge.glutenfree.desc"),
+  },
+  {
+    img: "/images/logo-vegan.webp",
+    title: t("qori.badge.vegan"),
+    desc: t("qori.badge.vegan.desc"),
+  },
+  {
+    img: "/images/logo-ogm.webp",
+    title: t("qori.badge.ogm"),
+    desc: t("qori.badge.ogm.desc"),
+  },
+  {
+    img: "/images/logo-colorants.webp",
+    title: t("qori.badge.colorants"),
+    desc: t("qori.badge.colorants.desc"),
+  },
+  {
+    img: "/images/logo-proteins.webp",
+    title: t("qori.badge.proteins"),
+    desc: t("qori.badge.proteins.desc"),
+  },
+  {
+    img: "/images/logo-fer.webp",
+    title: t("qori.badge.iron"),
+    desc: t("qori.badge.iron.desc"),
+  },
+  {
+    img: "/images/logo-vitamins.webp",
+    title: t("qori.badge.vitamins"),
+    desc: t("qori.badge.vitamins.desc"),
+  },
 ];
 ---
 
@@ -45,31 +77,39 @@ const badges = [
     </div>
 
     <!-- Certifications & Nutrition Badges -->
-    <div class="mb-16 bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-stone-200/90 shadow-sm">
+    <div
+      class="mb-16 bg-white/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-stone-200/90 shadow-sm"
+    >
       <div class="text-center max-w-xl mx-auto mb-6">
-        <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark">
+        <span
+          class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark"
+        >
           {t("qori.badges.title")}
         </span>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
-        {badges.map((badge) => (
-          <div class="p-3.5 rounded-2xl bg-cream-sand/60 hover:bg-white border border-stone-200/80 hover:border-balbux-accent/40 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group">
-            <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden flex items-center justify-center p-1 mb-2.5 bg-white/90 shadow-2xs group-hover:scale-105 transition-transform duration-300">
-              <img
-                src={badge.img}
-                alt={badge.title}
-                class="w-full h-full object-contain"
-                loading="lazy"
-              />
+      <div
+        class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4"
+      >
+        {
+          badges.map((badge) => (
+            <div class="p-3.5 rounded-2xl bg-cream-sand/60 hover:bg-white border border-stone-200/80 hover:border-balbux-accent/40 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center group">
+              <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-full overflow-hidden flex items-center justify-center p-1 mb-2.5 bg-white/90 shadow-2xs group-hover:scale-105 transition-transform duration-300">
+                <img
+                  src={badge.img}
+                  alt={badge.title}
+                  class="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <p class="text-xs font-bold text-balbux-deep leading-tight">
+                {badge.title}
+              </p>
+              <p class="text-[10px] text-slate-stone mt-1 line-clamp-2 leading-tight">
+                {badge.desc}
+              </p>
             </div>
-            <p class="text-xs font-bold text-balbux-deep leading-tight">
-              {badge.title}
-            </p>
-            <p class="text-[10px] text-slate-stone mt-1 line-clamp-2 leading-tight">
-              {badge.desc}
-            </p>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
 
@@ -82,29 +122,15 @@ const badges = [
           class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-stone-200 gap-4"
         >
           <div>
-            <span
-              class="text-xs font-bold text-balbux-accent tracking-wider uppercase"
-              >{t("qori.card.badge")}</span
-            >
             <h3 class="text-2xl font-serif font-bold text-balbux-deep">
               {t("qori.card.title")}
             </h3>
           </div>
           <div class="flex flex-wrap items-center gap-2">
             <span
-              class="px-3 py-1 rounded-full bg-balbux-soft text-balbux-deep font-semibold text-xs border border-balbux-forest/10"
+              class="px-3.5 py-1.5 rounded-full bg-balbux-soft text-balbux-deep font-semibold text-xs border border-balbux-forest/15 shadow-2xs"
             >
               {t("qori.card.format")}
-            </span>
-            <span
-              class="px-3 py-1 rounded-full bg-cream-sand text-balbux-deep font-medium text-xs border border-stone-200/90 shadow-2xs"
-            >
-              {t("qori.variant1.name")}
-            </span>
-            <span
-              class="px-3 py-1 rounded-full bg-cream-sand text-balbux-deep font-medium text-xs border border-stone-200/90 shadow-2xs"
-            >
-              {t("qori.variant2.name")}
             </span>
           </div>
         </div>
@@ -117,7 +143,7 @@ const badges = [
               class="p-4 rounded-xl bg-cream-sand border border-stone-200 flex items-center gap-3"
             >
               <div
-                class="w-8 h-8 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-xs"
+                class="w-8 h-8 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-xs flex-shrink-0"
               >
                 🌾
               </div>
@@ -125,9 +151,6 @@ const badges = [
                 <h4 class="text-sm font-bold text-balbux-deep">
                   {t("qori.variant1.name")}
                 </h4>
-                <p class="text-xs text-slate-stone">
-                  {t("qori.variant1.desc")}
-                </p>
               </div>
             </div>
 
@@ -136,7 +159,7 @@ const badges = [
               class="p-4 rounded-xl bg-cream-sand border border-stone-200 flex items-center gap-3"
             >
               <div
-                class="w-8 h-8 rounded-full bg-amber-800/20 border border-amber-800/40 flex items-center justify-center text-xs"
+                class="w-8 h-8 rounded-full bg-amber-800/20 border border-amber-800/40 flex items-center justify-center text-xs flex-shrink-0"
               >
                 🍂
               </div>
@@ -144,9 +167,6 @@ const badges = [
                 <h4 class="text-sm font-bold text-balbux-deep">
                   {t("qori.variant2.name")}
                 </h4>
-                <p class="text-xs text-slate-stone">
-                  {t("qori.variant2.desc")}
-                </p>
               </div>
             </div>
           </div>

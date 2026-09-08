@@ -3,8 +3,13 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Hero from "../../components/Hero.astro";
 import Histoire from "../../components/Histoire.astro";
+import ExpertiseBanner from "../../components/ExpertiseBanner.astro";
+import Ambition from "../../components/Ambition.astro";
 import Vision from "../../components/Vision.astro";
-import Pilares from "../../components/Pilares.astro";
+import QueHacemos from "../../components/QueHacemos.astro";
+import ParaQuienTrabajamos from "../../components/ParaQuienTrabajamos.astro";
+import EuropeanGateway from "../../components/EuropeanGateway.astro";
+import Portfolio from "../../components/Portfolio.astro";
 import Qori from "../../components/Qori.astro";
 import Contacto from "../../components/Contacto.astro";
 import Footer from "../../components/Footer.astro";
@@ -25,8 +30,13 @@ const { lang } = Astro.params as { lang: Lang };
 	<main class="flex-grow">
 		<Hero />
 		<Histoire />
+		<ExpertiseBanner />
+		<Ambition />
 		<Vision />
-		<Pilares />
+		<QueHacemos />
+		<ParaQuienTrabajamos />
+		<EuropeanGateway />
+		<Portfolio />
 		<Qori />
 		<Contacto />
 	</main>

@@ -1,0 +1,221 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const columns = [
+  {
+    id: "producers",
+    title: t("target.col1.title"),
+    desc: t("target.col1.desc"),
+    img: "/images/target_producers.jpg?v=3",
+    imgAlt: t("target.col1.title"),
+    // Leaf in circle
+    iconType: "leaf"
+  },
+  {
+    id: "distributors",
+    title: t("target.col2.title"),
+    desc: t("target.col2.desc"),
+    img: "/images/target_distributors.jpg?v=3",
+    imgAlt: t("target.col2.title"),
+    // Cart in circle
+    iconType: "cart"
+  },
+  {
+    id: "retailers",
+    title: t("target.col3.title"),
+    desc: t("target.col3.desc"),
+    img: "/images/target_retailers.jpg?v=3",
+    imgAlt: t("target.col3.title"),
+    // Storefront in circle
+    iconType: "store"
+  },
+  {
+    id: "foodservice",
+    title: t("target.col4.title"),
+    desc: t("target.col4.desc"),
+    img: "/images/target_foodservice.jpg?v=3",
+    imgAlt: t("target.col4.title"),
+    // Cloche / chef dish in circle
+    iconType: "cloche"
+  }
+];
+
+const values = [
+  {
+    label: t("target.val1"),
+    icon: "globe"
+  },
+  {
+    label: t("target.val2"),
+    icon: "handshake"
+  },
+  {
+    label: t("target.val3"),
+    icon: "quality"
+  },
+  {
+    label: t("target.val4"),
+    icon: "growth"
+  },
+  {
+    label: t("target.val5"),
+    icon: "trust"
+  }
+];
+---
+
+<section id="para-quien-trabajamos" class="py-20 lg:py-24 bg-cream-sand border-b border-stone-200/80 scroll-mt-16 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Emblem & Header -->
+    <div class="max-w-3xl mx-auto text-center mb-14 sm:mb-16 space-y-4">
+      <!-- Leaves Emblem -->
+      <div class="flex items-center justify-center">
+        <div class="w-12 h-12 flex items-center justify-center text-balbux-accent">
+          <svg class="w-10 h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Left leaf -->
+            <path d="M24 38C24 38 10 32 10 18C10 11 17 8 24 16C31 8 38 11 38 18C38 32 24 38 24 38Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2"/>
+            <path d="M24 16V38" stroke="currentColor" stroke-width="2"/>
+            <path d="M17 24C20 25 24 28 24 28" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M31 24C28 25 24 28 24 28" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Main Title (Serif, Elegant) -->
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-balbux-deep tracking-tight">
+        {t('target.title')}
+      </h2>
+
+      <!-- Subtitle -->
+      <p class="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-slate-charcoal">
+        {t('target.subtitle')}
+      </p>
+
+      <div class="h-0.5 w-16 bg-gold-badge/80 rounded-full mx-auto my-3"></div>
+
+      <!-- Lead paragraph -->
+      <p class="text-base sm:text-lg text-slate-stone font-light leading-relaxed max-w-2xl mx-auto pt-1">
+        {t('target.lead')}
+      </p>
+    </div>
+
+    <!-- Main Infographic Block with 4 Columns & Photos -->
+    <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200/90 bg-white">
+      
+      <!-- 4 Target Columns Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-stone-200/80">
+        {columns.map((col) => (
+          <div class="h-full flex flex-col justify-between bg-white group hover:bg-[#faf8f4] transition-colors duration-300">
+            
+            <!-- Top Content Section: Icon + Title + Description -->
+            <div class="p-6 sm:p-7 lg:p-8 flex flex-col items-center text-center flex-1 min-h-[260px] sm:min-h-[280px] lg:min-h-[290px]">
+              
+              <!-- Circular Icon -->
+              <div class="w-16 h-16 rounded-full border border-stone-300/80 bg-cream-sand/60 flex items-center justify-center text-balbux-deep mb-5 group-hover:border-balbux-accent group-hover:bg-balbux-deep group-hover:text-gold-badge transition-all duration-300 shadow-2xs flex-shrink-0">
+                {col.iconType === "leaf" && (
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21V3m0 0a9 9 0 018.716 6.747M12 3a9 9 0 00-8.716 6.747M12 3c-4.5 4-4.5 10 0 14"/>
+                  </svg>
+                )}
+                {col.iconType === "cart" && (
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                )}
+                {col.iconType === "store" && (
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 10h16"/>
+                  </svg>
+                )}
+                {col.iconType === "cloche" && (
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5V3m0 2a8 8 0 018 8H4a8 8 0 018-8zm-9 11h18a1 1 0 011 1v1H2v-1a1 1 0 011-1z"/>
+                  </svg>
+                )}
+              </div>
+
+              <!-- Title with uniform height across all columns -->
+              <div class="h-12 sm:h-14 flex items-center justify-center mb-3 w-full">
+                <h3 class="text-sm sm:text-base font-serif font-bold uppercase tracking-wider text-balbux-deep leading-snug group-hover:text-balbux-accent transition-colors max-w-[220px]">
+                  {col.title}
+                </h3>
+              </div>
+
+              <!-- Description with uniform start and layout -->
+              <div class="flex-1 flex items-start justify-center w-full">
+                <p class="text-xs sm:text-sm text-slate-stone font-light leading-relaxed max-w-[250px]">
+                  {col.desc}
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Bottom Photo Section: 4 distinct independent photos -->
+            <div class="w-full h-48 sm:h-52 lg:h-56 overflow-hidden relative border-t border-stone-200/80 mt-auto flex-shrink-0">
+              <img 
+                src={col.img} 
+                alt={col.imgAlt} 
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out block" 
+                loading="lazy" 
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-balbux-deep/20 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom Dark Green Values Banner (Exactly like in the Infographic) -->
+      <div class="bg-balbux-deep text-white border-t border-balbux-forest/60">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-white/15">
+          {values.map((val) => (
+            <div class="p-4 sm:p-5 flex items-center justify-center gap-3 group hover:bg-balbux-forest/50 transition-colors duration-200 text-center">
+              
+              <!-- Gold Value Icon -->
+              <div class="text-gold-badge group-hover:text-gold-light group-hover:scale-110 transition-transform duration-200 flex-shrink-0">
+                {val.icon === "globe" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM3.6 9h16.8M3.6 15h16.8M12 3a15.3 15.3 0 014 9 15.3 15.3 0 01-4 9 15.3 15.3 0 01-4-9 15.3 15.3 0 014-9z"/>
+                  </svg>
+                )}
+                {val.icon === "handshake" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5l3 3m-3-3l-3 3m13-3V14m0-2.5l-3 3m3-3l3 3M4 17l4 4 6-6-4-4-6 6zm16 0l-4 4-6-6 4-4 6 6z"/>
+                  </svg>
+                )}
+                {val.icon === "quality" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                  </svg>
+                )}
+                {val.icon === "growth" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                )}
+                {val.icon === "trust" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                )}
+              </div>
+
+              <!-- Value Text -->
+              <span class="text-xs sm:text-xs tracking-[0.18em] font-semibold text-stone-100 uppercase group-hover:text-gold-badge transition-colors whitespace-nowrap">
+                {val.label}
+              </span>
+
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

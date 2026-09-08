@@ -1,72 +1,86 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="hero" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+<section
+  id="hero"
+  class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28"
+>
   <!-- Background Image with full vibrancy -->
   <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-    <img 
-      src="/images/hero-bg.jpg" 
-      alt={t('hero.subheading')} 
+    <img
+      src="/images/hero-bg.jpg"
+      alt={t("hero.subheading")}
       class="w-full h-full object-cover object-center scale-[1.01]"
       loading="eager"
     />
     <!-- Subtle natural lighting overlay -->
-    <div class="absolute inset-0 bg-stone-900/10 backdrop-contrast-[1.02]"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-cream-sand/60 via-transparent to-cream-sand/20"></div>
+    <div class="absolute inset-0 bg-stone-900/10 backdrop-contrast-[1.02]">
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-cream-sand/60 via-transparent to-cream-sand/20"
+    >
+    </div>
   </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    
     <!-- Top Tagline Pill -->
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-stone-200/80 text-balbux-deep text-xs font-semibold tracking-wide mb-8 shadow-sm">
+    <div
+      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-stone-200/80 text-balbux-deep text-xs font-semibold tracking-wide mb-8 shadow-sm"
+    >
       <span class="w-2 h-2 rounded-full bg-balbux-accent animate-pulse"></span>
-      <span>{t('hero.pill')}</span>
+      <span>{t("hero.pill")}</span>
     </div>
 
     <div class="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
       <!-- Left Hero Content wrapped in a premium frosted glass container for pristine legibility -->
-      <div class="lg:col-span-7 p-6 sm:p-10 rounded-3xl bg-white/92 backdrop-blur-md border border-white/80 shadow-2xl space-y-6">
+      <div
+        class="lg:col-span-7 p-6 sm:p-10 rounded-3xl bg-white/92 backdrop-blur-md border border-white/80 shadow-2xl space-y-6"
+      >
         <p class="text-xs tracking-[0.3em] uppercase font-bold text-gold-dark">
-          {t('hero.badge')}
+          {t("hero.badge")}
         </p>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-balbux-deep tracking-tight leading-[1.12]">
-          {t('hero.claim.title')}<br>
-          <span class="text-balbux-accent italic">{t('hero.claim.subtitle')}</span>
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-balbux-deep tracking-tight leading-[1.12]"
+        >
+          {t("hero.claim.title")}<br />
+          <span class="text-balbux-accent italic"
+            >{t("hero.claim.subtitle")}</span
+          >
         </h1>
         <h2 class="text-xl sm:text-2xl font-medium text-slate-charcoal">
-          {t('hero.subheading')}
+          {t("hero.subheading")}
         </h2>
         <div class="h-1 w-16 bg-gold-badge rounded-full"></div>
-        <p class="text-base sm:text-lg text-slate-stone leading-relaxed max-w-2xl font-light" set:html={t('hero.paragraph')}>
-        </p>
-        
-        <!-- Key Metrics / Trust Row -->
-        <div class="pt-4 grid grid-cols-3 gap-4 border-t border-stone-200/80 max-w-xl">
-          <div>
-            <p class="text-2xl font-bold font-serif text-balbux-deep">{t('hero.metric1.value')}</p>
-            <p class="text-xs text-slate-stone">{t('hero.metric1.label')}</p>
-          </div>
-          <div>
-            <p class="text-2xl font-bold font-serif text-balbux-deep">{t('hero.metric2.value')}</p>
-            <p class="text-xs text-slate-stone">{t('hero.metric2.label')}</p>
-          </div>
-          <div>
-            <p class="text-2xl font-bold font-serif text-balbux-deep">{t('hero.metric3.value')}</p>
-            <p class="text-xs text-slate-stone">{t('hero.metric3.label')}</p>
-          </div>
-        </div>
+        <p
+          class="text-base sm:text-lg text-slate-stone leading-relaxed max-w-2xl font-light"
+          set:html={t("hero.paragraph")}
+        />
 
-        <!-- Buttons CTA -->
-        <div class="pt-2 flex flex-wrap items-center gap-4">
-          <a href="#qori" class="px-7 py-3.5 rounded-xl bg-balbux-deep text-white font-medium text-sm hover:bg-balbux-forest transition-all duration-300 shadow-md shadow-balbux-deep/20 flex items-center gap-2 group">
-            {t('hero.cta')}
-            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-            </svg>
-          </a>
+        <!-- Key Metrics / Trust Row -->
+        <div
+          class="pt-4 grid grid-cols-3 gap-4 border-t border-stone-200/80 max-w-xl"
+        >
+          <div>
+            <p class="text-2xl font-bold font-serif text-balbux-deep">
+              {t("hero.metric1.value")}
+            </p>
+            <p class="text-xs text-slate-stone">{t("hero.metric1.label")}</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold font-serif text-balbux-deep">
+              {t("hero.metric2.value")}
+            </p>
+            <p class="text-xs text-slate-stone">{t("hero.metric2.label")}</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold font-serif text-balbux-deep">
+              {t("hero.metric3.value")}
+            </p>
+            <p class="text-xs text-slate-stone">{t("hero.metric3.label")}</p>
+          </div>
         </div>
       </div>
 
@@ -74,56 +88,98 @@ const t = useTranslations(lang);
       <div class="lg:col-span-5">
         <div class="relative mx-auto max-w-md lg:max-w-none">
           <!-- Decorative Backing Badge -->
-          <div class="absolute -top-4 -right-4 w-72 h-72 bg-gold-light/40 rounded-3xl -rotate-3 blur-sm pointer-events-none"></div>
-          
-          <div class="relative rounded-3xl overflow-hidden border border-stone-200/80 bg-white/95 backdrop-blur-sm shadow-2xl">
+          <div
+            class="absolute -top-4 -right-4 w-72 h-72 bg-gold-light/40 rounded-3xl -rotate-3 blur-sm pointer-events-none"
+          >
+          </div>
+
+          <div
+            class="relative rounded-3xl overflow-hidden border border-stone-200/80 bg-white/95 backdrop-blur-sm shadow-2xl"
+          >
             <!-- Header of card -->
-            <div class="p-6 bg-gradient-to-br from-balbux-deep to-balbux-forest text-white">
+            <div
+              class="p-6 bg-gradient-to-br from-balbux-deep to-balbux-forest text-white"
+            >
               <div class="flex items-center justify-between mb-3">
-                <span class="text-xs uppercase tracking-widest text-gold-badge font-semibold">{t('hero.card.badge')}</span>
-                <span class="text-[11px] px-2 py-0.5 rounded bg-white/10 font-mono">{t('hero.card.stamp')}</span>
+                <span
+                  class="text-xs uppercase tracking-widest text-gold-badge font-semibold"
+                  >{t("hero.card.badge")}</span
+                >
+                <span
+                  class="text-[11px] px-2 py-0.5 rounded bg-white/10 font-mono"
+                  >{t("hero.card.stamp")}</span
+                >
               </div>
-              <h3 class="text-xl font-serif font-bold">{t('hero.card.title')}</h3>
-              <p class="text-xs text-stone-200 mt-1 font-light">{t('hero.card.subtitle')}</p>
+              <h3 class="text-xl font-serif font-bold">
+                {t("hero.card.title")}
+              </h3>
+              <p class="text-xs text-stone-200 mt-1 font-light">
+                {t("hero.card.subtitle")}
+              </p>
             </div>
 
             <!-- Content inside card -->
             <div class="p-6 space-y-4 bg-cream-sand/50">
               <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-full bg-gold-badge/20 text-gold-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">01</div>
+                <div
+                  class="w-7 h-7 rounded-full bg-gold-badge/20 text-gold-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  01
+                </div>
                 <div>
-                  <h4 class="text-sm font-semibold text-balbux-deep">{t('hero.card.step1.title')}</h4>
-                  <p class="text-xs text-slate-stone">{t('hero.card.step1.desc')}</p>
+                  <h4 class="text-sm font-semibold text-balbux-deep">
+                    {t("hero.card.step1.title")}
+                  </h4>
+                  <p class="text-xs text-slate-stone">
+                    {t("hero.card.step1.desc")}
+                  </p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-full bg-gold-badge/20 text-gold-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">02</div>
+                <div
+                  class="w-7 h-7 rounded-full bg-gold-badge/20 text-gold-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  02
+                </div>
                 <div>
-                  <h4 class="text-sm font-semibold text-balbux-deep">{t('hero.card.step2.title')}</h4>
-                  <p class="text-xs text-slate-stone">{t('hero.card.step2.desc')}</p>
+                  <h4 class="text-sm font-semibold text-balbux-deep">
+                    {t("hero.card.step2.title")}
+                  </h4>
+                  <p class="text-xs text-slate-stone">
+                    {t("hero.card.step2.desc")}
+                  </p>
                 </div>
               </div>
 
               <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-full bg-gold-badge/20 text-gold-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">03</div>
+                <div
+                  class="w-7 h-7 rounded-full bg-gold-badge/20 text-gold-dark font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5"
+                >
+                  03
+                </div>
                 <div>
-                  <h4 class="text-sm font-semibold text-balbux-deep">{t('hero.card.step3.title')}</h4>
-                  <p class="text-xs text-slate-stone">{t('hero.card.step3.desc')}</p>
+                  <h4 class="text-sm font-semibold text-balbux-deep">
+                    {t("hero.card.step3.title")}
+                  </h4>
+                  <p class="text-xs text-slate-stone">
+                    {t("hero.card.step3.desc")}
+                  </p>
                 </div>
               </div>
 
               <!-- Card footer badge -->
               <div class="pt-3 border-t border-stone-200 text-center">
-                <p class="text-[11px] font-semibold tracking-wider uppercase text-balbux-emerald">
-                  {t('hero.card.footer')}
+                <p
+                  class="text-[11px] font-semibold tracking-wider uppercase text-balbux-emerald"
+                >
+                  {t("hero.card.footer")}
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
