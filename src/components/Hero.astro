@@ -26,14 +26,6 @@ const t = useTranslations(lang);
     </div>
   </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- Top Tagline Pill -->
-    <div
-      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-stone-200/80 text-balbux-deep text-xs font-semibold tracking-wide mb-8 shadow-sm"
-    >
-      <span class="w-2 h-2 rounded-full bg-balbux-accent animate-pulse"></span>
-      <span>{t("hero.pill")}</span>
-    </div>
-
     <div class="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
       <!-- Left Hero Content wrapped in a premium frosted glass container for pristine legibility -->
       <div
@@ -50,9 +42,7 @@ const t = useTranslations(lang);
             >{t("hero.claim.subtitle")}</span
           >
         </h1>
-        <h2 class="text-xl sm:text-2xl font-medium text-slate-charcoal">
-          {t("hero.subheading")}
-        </h2>
+
         <div class="h-1 w-16 bg-gold-badge rounded-full"></div>
         <p
           class="text-base sm:text-lg text-slate-stone leading-relaxed max-w-2xl font-light"
@@ -61,7 +51,7 @@ const t = useTranslations(lang);
 
         <!-- Key Metrics / Trust Row -->
         <div
-          class="pt-4 grid grid-cols-3 gap-4 border-t border-stone-200/80 max-w-xl"
+          class="pt-4 grid grid-cols-2 gap-6 border-t border-stone-200/80 max-w-xl"
         >
           <div>
             <p class="text-2xl font-bold font-serif text-balbux-deep">
@@ -75,11 +65,35 @@ const t = useTranslations(lang);
             </p>
             <p class="text-xs text-slate-stone">{t("hero.metric2.label")}</p>
           </div>
-          <div>
-            <p class="text-2xl font-bold font-serif text-balbux-deep">
-              {t("hero.metric3.value")}
-            </p>
-            <p class="text-xs text-slate-stone">{t("hero.metric3.label")}</p>
+        </div>
+
+        <!-- Scope: Models & Distribution Channels -->
+        <div class="pt-4 border-t border-stone-200/60 max-w-xl space-y-2.5">
+          <div class="flex flex-wrap items-center gap-2">
+            {
+              ["B2B", "B2C", "B2B2C", "B2B2B"].map((item) => (
+                <span class="px-2.5 py-0.5 rounded-md bg-cream-sand text-balbux-deep font-bold text-xs tracking-wider border border-stone-200 font-mono shadow-2xs">
+                  {item}
+                </span>
+              ))
+            }
+          </div>
+          <div class="flex flex-wrap items-center gap-1.5 text-xs">
+            <span class="px-2 py-0.5 rounded-md bg-balbux-soft/70 text-balbux-deep font-medium border border-balbux-forest/15">
+              Marketplace
+            </span>
+            <span class="px-2 py-0.5 rounded-md bg-balbux-soft/70 text-balbux-deep font-medium border border-balbux-forest/15">
+              Retail
+            </span>
+            <span class="px-2 py-0.5 rounded-md bg-balbux-soft/70 text-balbux-deep font-medium border border-balbux-forest/15">
+              Wholesale
+            </span>
+            <span class="px-2 py-0.5 rounded-md bg-balbux-soft/70 text-balbux-deep font-medium border border-balbux-forest/15">
+              Omnichannel
+            </span>
+            <span class="px-2 py-0.5 rounded-md bg-balbux-accent/10 text-balbux-accent font-semibold border border-balbux-accent/25">
+              {lang === "es" ? "Sell-in y Sell-out" : "Sell-in & Sell-out"}
+            </span>
           </div>
         </div>
       </div>

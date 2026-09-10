@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -9,87 +9,120 @@ const items = [
     num: "01",
     title: t("quehacemos.item1.title"),
     text: t("quehacemos.item1.text"),
-    icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+    icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
   },
   {
     num: "02",
     title: t("quehacemos.item2.title"),
     text: t("quehacemos.item2.text"),
-    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
   },
   {
     num: "03",
     title: t("quehacemos.item3.title"),
     text: t("quehacemos.item3.text"),
-    icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+    icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
   },
   {
     num: "04",
     title: t("quehacemos.item4.title"),
     text: t("quehacemos.item4.text"),
-    icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-  }
+    icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4",
+  },
 ];
 ---
 
-<section id="que-hacemos" class="py-20 lg:py-24 bg-balbux-deep text-white relative scroll-mt-16">
+<section
+  id="que-hacemos"
+  class="py-20 lg:py-24 bg-balbux-deep text-white relative scroll-mt-16"
+>
   <!-- Anchor alias for pilares link compatibility -->
   <div id="pilares" class="absolute -top-16"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    
     <!-- Section Header -->
     <div class="max-w-3xl mb-16 space-y-3">
-      <span class="text-xs uppercase tracking-[0.3em] font-semibold text-gold-badge">
-        {t('quehacemos.tag')}
+      <span
+        class="text-xs uppercase tracking-[0.3em] font-semibold text-gold-badge"
+      >
+        {t("quehacemos.tag")}
       </span>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight">
-        {t('quehacemos.title')}
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight"
+      >
+        {t("quehacemos.title")}
       </h2>
       <div class="h-1 w-16 bg-gold-badge rounded-full"></div>
-      <p class="text-base text-stone-300 font-light leading-relaxed max-w-2xl pt-2">
-        {t('quehacemos.lead')}
+      <p
+        class="text-base text-stone-300 font-light leading-relaxed max-w-2xl pt-2"
+      >
+        {t("quehacemos.lead")}
       </p>
     </div>
 
     <!-- 4 Items Grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-      {items.map((item) => (
-        <div class="rounded-3xl p-7 bg-balbux-forest/60 border border-white/10 hover:border-gold-badge/40 transition-all duration-300 flex flex-col justify-between group hover:shadow-xl hover:-translate-y-1">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-2xl font-serif font-bold text-gold-badge">{item.num}</span>
-              <div class="w-10 h-10 rounded-full bg-white/5 group-hover:bg-gold-badge/10 flex items-center justify-center text-gold-badge transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d={item.icon}/>
-                </svg>
+      {
+        items.map((item) => (
+          <div class="rounded-3xl p-7 bg-balbux-forest/60 border border-white/10 hover:border-gold-badge/40 transition-all duration-300 flex flex-col justify-between group hover:shadow-xl hover:-translate-y-1">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-serif font-bold text-gold-badge">
+                  {item.num}
+                </span>
+                <div class="w-10 h-10 rounded-full bg-white/5 group-hover:bg-gold-badge/10 flex items-center justify-center text-gold-badge transition-colors">
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.8"
+                      d={item.icon}
+                    />
+                  </svg>
+                </div>
               </div>
+              <h3 class="text-base font-bold uppercase tracking-wider text-white group-hover:text-gold-light transition-colors duration-300">
+                {item.title}
+              </h3>
+              <p class="text-sm text-stone-300 leading-relaxed font-light">
+                {item.text}
+              </p>
             </div>
-            <h3 class="text-base font-bold uppercase tracking-wider text-white group-hover:text-gold-light transition-colors duration-300">
-              {item.title}
-            </h3>
-            <p class="text-sm text-stone-300 leading-relaxed font-light">
-              {item.text}
-            </p>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
     <!-- Supply Chain Diagram -->
-    <div class="rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-12 shadow-2xl p-4 sm:p-8 flex justify-center">
-      <img src="/images/eu_supply_chain.jpg" alt={t('quehacemos.img.alt')} class="w-full max-w-4xl h-auto rounded-2xl" loading="lazy" />
+    <div
+      class="rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-12 shadow-2xl p-4 sm:p-8 flex justify-center"
+    >
+      <img
+        src="/images/expertise.jpg"
+        alt={t("quehacemos.img.alt")}
+        class="w-full max-w-5xl h-auto rounded-2xl"
+        loading="lazy"
+      />
     </div>
 
     <!-- Bottom CTA Banner -->
-    <div class="p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+    <div
+      class="p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"
+    >
       <p class="text-sm sm:text-base font-medium text-stone-200">
-        {t('quehacemos.banner.text')}
+        {t("quehacemos.banner.text")}
       </p>
-      <a href="#contact" class="px-7 py-3 rounded-full bg-gold-badge text-balbux-deep font-bold text-xs uppercase tracking-wider hover:bg-gold-light transition-all duration-300 shadow-md whitespace-nowrap">
-        {t('quehacemos.banner.btn')}
+      <a
+        href="#contact"
+        class="px-7 py-3 rounded-full bg-gold-badge text-balbux-deep font-bold text-xs uppercase tracking-wider hover:bg-gold-light transition-all duration-300 shadow-md whitespace-nowrap"
+      >
+        {t("quehacemos.banner.btn")}
       </a>
     </div>
-
   </div>
 </section>
