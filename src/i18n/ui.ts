@@ -22,7 +22,7 @@ export const ui = {
     'header.nav.portfolio': 'Notre Portfolio',
     'header.nav.qori': 'Gamme QŌRI',
     'header.nav.contact': 'Contact',
-    'header.cta': 'Écrire à la Direction',
+    'header.cta': 'Contact',
     'header.menu.open': 'Ouvrir le menu',
     'header.lang.select': 'Changer de langue',
 
@@ -256,7 +256,7 @@ export const ui = {
     'header.nav.portfolio': 'Nuestro Portfolio',
     'header.nav.qori': 'Gama QŌRI',
     'header.nav.contact': 'Contacto',
-    'header.cta': 'Contactar Dirección',
+    'header.cta': 'Contacto',
     'header.menu.open': 'Abrir menú',
     'header.lang.select': 'Cambiar de idioma',
 
@@ -490,7 +490,7 @@ export const ui = {
     'header.nav.portfolio': 'Our Portfolio',
     'header.nav.qori': 'QŌRI Range',
     'header.nav.contact': 'Contact',
-    'header.cta': 'Contact Leadership',
+    'header.cta': 'Contact',
     'header.menu.open': 'Open menu',
     'header.lang.select': 'Switch language',
 

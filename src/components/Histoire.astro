@@ -7,46 +7,45 @@ const t = useTranslations(lang);
 
 <section
   id="histoire"
-  class="relative overflow-hidden py-20 lg:py-28 bg-cream-sand border-t border-stone-200/80"
+  class="py-20 lg:py-28 bg-cream-sand border-t border-stone-200/80"
 >
-  <!-- Background Image 100vw -->
-  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-    <img
-      src="/images/global_routes.png"
-      alt={t("histoire.img1.alt")}
-      class="w-full h-full object-contain object-center lg:object-right"
-      loading="lazy"
-    />
-    <!-- Subtle natural lighting overlay -->
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-cream-sand/40 via-transparent to-cream-sand/20"
-    >
-    </div>
-  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left: Story Text -->
+      <div class="space-y-6">
+        <span class="text-xs tracking-[0.25em] font-bold text-gold-dark uppercase"
+          >{t("histoire.tag")}</span
+        >
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-balbux-deep leading-tight"
+        >
+          {t("histoire.title")}
+        </h2>
+        <p class="text-lg text-slate-stone font-medium leading-relaxed">
+          {t("histoire.lead")}
+        </p>
+        <div class="h-1 w-16 bg-gold-badge rounded-full"></div>
+        <div
+          class="space-y-4 text-sm sm:text-base text-slate-stone font-light leading-relaxed"
+        >
+          <p set:html={t("histoire.p1")} />
+          <p>{t("histoire.p2")}</p>
+          <p>{t("histoire.p3")}</p>
+        </div>
+      </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- Text Section wrapped in a frosted card like Hero -->
-    <div
-      class="max-w-2xl lg:max-w-3xl p-6 sm:p-10 rounded-3xl bg-white/15 backdrop-blur-xs border border-white/40 shadow-lg space-y-6"
-    >
-      <span class="text-xs tracking-[0.25em] font-bold text-gold-dark uppercase"
-        >{t("histoire.tag")}</span
-      >
-      <h2
-        class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-balbux-deep leading-tight"
-      >
-        {t("histoire.title")}
-      </h2>
-      <p class="text-lg text-slate-stone font-medium leading-relaxed">
-        {t("histoire.lead")}
-      </p>
-      <div class="h-1 w-16 bg-gold-badge rounded-full"></div>
-      <div
-        class="space-y-4 text-sm sm:text-base text-slate-stone font-light leading-relaxed"
-      >
-        <p set:html={t("histoire.p1")} />
-        <p>{t("histoire.p2")}</p>
-        <p>{t("histoire.p3")}</p>
+      <!-- Right: Global Routes Image -->
+      <div>
+        <div
+          class="relative rounded-3xl overflow-hidden shadow-xl border border-stone-200/90 bg-white/70 p-2 sm:p-3 group"
+        >
+          <img
+            src="/images/global_routes.png"
+            alt={t("histoire.img1.alt")}
+            class="w-full h-auto object-contain rounded-2xl group-hover:scale-102 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </div>

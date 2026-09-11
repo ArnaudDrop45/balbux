@@ -67,7 +67,17 @@ const localeMap = {
 		<meta property="twitter:url" content={canonicalURL} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+		<!-- Scroll Position Reset -->
+		<script is:inline>
+			if ('scrollRestoration' in history) {
+				history.scrollRestoration = 'manual';
+			}
+			window.addEventListener('pageshow', () => {
+				if (!window.location.hash) {
+					window.scrollTo(0, 0);
+				}
+			});
+		</script>
 	</head>
 	<body class="bg-cream-ivory text-slate-charcoal font-sans antialiased overflow-x-hidden selection:bg-balbux-soft selection:text-balbux-deep min-h-screen flex flex-col">
 		<slot />
