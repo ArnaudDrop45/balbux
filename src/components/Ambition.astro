@@ -3,9 +3,16 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const originToMarketImg =
+  lang === "es"
+    ? "/images/origin_to_market_es.webp"
+    : lang === "en"
+      ? "/images/origin_to_market_en.webp"
+      : "/images/origin_to_market.jpg";
 ---
 
-<section class="py-24 bg-cream-sand border-b border-stone-200/80">
+<section class="pb-24 bg-cream-sand border-b border-stone-200/80">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Ambition Section with Infographic -->
     <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -39,7 +46,7 @@ const t = useTranslations(lang);
         class="relative rounded-3xl overflow-hidden shadow-lg border border-stone-200"
       >
         <img
-          src="/images/origin_to_market.jpg"
+          src={originToMarketImg}
           alt={t("histoire.img2.alt")}
           class="w-full h-auto object-cover"
           loading="lazy"
@@ -50,12 +57,16 @@ const t = useTranslations(lang);
     <!-- Process Timeline: DE ORIGEN AL MERCADO -->
     <div class="mt-20 pt-16 border-t border-stone-200/80">
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs tracking-[0.25em] font-bold text-gold-dark uppercase block mb-3">
+        <span
+          class="text-xs tracking-[0.25em] font-bold text-gold-dark uppercase block mb-3"
+        >
           {t("ambition.process.tag")}
         </span>
 
         <!-- ORIGIN → BALBUX → FRANCE → EUROPE -->
-        <div class="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-5 py-2 rounded-full bg-balbux-deep text-white text-xs sm:text-sm font-semibold tracking-wider shadow-sm">
+        <div
+          class="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-5 py-2 rounded-full bg-balbux-deep text-white text-xs sm:text-sm font-semibold tracking-wider shadow-sm"
+        >
           <span>{t("ambition.flow.origin")}</span>
           <span class="text-balbux-accent font-bold">→</span>
           <span class="text-gold-light font-bold">BALBUX</span>
@@ -69,11 +80,18 @@ const t = useTranslations(lang);
       <!-- 5 Process Steps Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         <!-- 01 SELECT -->
-        <div class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-balbux-accent/40 transition-all duration-300 flex flex-col justify-between group">
+        <div
+          class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-balbux-accent/40 transition-all duration-300 flex flex-col justify-between group"
+        >
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold tracking-widest text-balbux-accent">01</span>
-              <span class="w-2 h-2 rounded-full bg-balbux-accent group-hover:scale-125 transition-transform"></span>
+              <span
+                class="text-xs font-mono font-bold tracking-widest text-balbux-accent"
+                >01</span
+              >
+              <span
+                class="w-2 h-2 rounded-full bg-balbux-accent group-hover:scale-125 transition-transform"
+              ></span>
             </div>
             <h4 class="text-base font-serif font-bold text-balbux-deep">
               {t("ambition.step1.title")}
@@ -85,11 +103,18 @@ const t = useTranslations(lang);
         </div>
 
         <!-- 02 ANALYZE -->
-        <div class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-gold-dark/40 transition-all duration-300 flex flex-col justify-between group">
+        <div
+          class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-gold-dark/40 transition-all duration-300 flex flex-col justify-between group"
+        >
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold tracking-widest text-gold-dark">02</span>
-              <span class="w-2 h-2 rounded-full bg-gold-dark group-hover:scale-125 transition-transform"></span>
+              <span
+                class="text-xs font-mono font-bold tracking-widest text-gold-dark"
+                >02</span
+              >
+              <span
+                class="w-2 h-2 rounded-full bg-gold-dark group-hover:scale-125 transition-transform"
+              ></span>
             </div>
             <h4 class="text-base font-serif font-bold text-balbux-deep">
               {t("ambition.step2.title")}
@@ -101,11 +126,18 @@ const t = useTranslations(lang);
         </div>
 
         <!-- 03 DEVELOP -->
-        <div class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-balbux-forest/40 transition-all duration-300 flex flex-col justify-between group">
+        <div
+          class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-balbux-forest/40 transition-all duration-300 flex flex-col justify-between group"
+        >
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold tracking-widest text-balbux-forest">03</span>
-              <span class="w-2 h-2 rounded-full bg-balbux-forest group-hover:scale-125 transition-transform"></span>
+              <span
+                class="text-xs font-mono font-bold tracking-widest text-balbux-forest"
+                >03</span
+              >
+              <span
+                class="w-2 h-2 rounded-full bg-balbux-forest group-hover:scale-125 transition-transform"
+              ></span>
             </div>
             <h4 class="text-base font-serif font-bold text-balbux-deep">
               {t("ambition.step3.title")}
@@ -117,11 +149,18 @@ const t = useTranslations(lang);
         </div>
 
         <!-- 04 CONNECT -->
-        <div class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-balbux-accent/40 transition-all duration-300 flex flex-col justify-between group">
+        <div
+          class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-balbux-accent/40 transition-all duration-300 flex flex-col justify-between group"
+        >
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold tracking-widest text-balbux-accent">04</span>
-              <span class="w-2 h-2 rounded-full bg-balbux-accent group-hover:scale-125 transition-transform"></span>
+              <span
+                class="text-xs font-mono font-bold tracking-widest text-balbux-accent"
+                >04</span
+              >
+              <span
+                class="w-2 h-2 rounded-full bg-balbux-accent group-hover:scale-125 transition-transform"
+              ></span>
             </div>
             <h4 class="text-base font-serif font-bold text-balbux-deep">
               {t("ambition.step4.title")}
@@ -133,11 +172,18 @@ const t = useTranslations(lang);
         </div>
 
         <!-- 05 GROW -->
-        <div class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-gold-dark/40 transition-all duration-300 flex flex-col justify-between group">
+        <div
+          class="p-6 rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md hover:border-gold-dark/40 transition-all duration-300 flex flex-col justify-between group"
+        >
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold tracking-widest text-gold-dark">05</span>
-              <span class="w-2 h-2 rounded-full bg-gold-dark group-hover:scale-125 transition-transform"></span>
+              <span
+                class="text-xs font-mono font-bold tracking-widest text-gold-dark"
+                >05</span
+              >
+              <span
+                class="w-2 h-2 rounded-full bg-gold-dark group-hover:scale-125 transition-transform"
+              ></span>
             </div>
             <h4 class="text-base font-serif font-bold text-balbux-deep">
               {t("ambition.step5.title")}
