@@ -12,6 +12,10 @@
   --color-balbux-soft: #eef5f1;
   --color-balbux-light: #f4f8f5;
 
+  --color-tricolor-purple: #62403f;
+  --color-tricolor-yellow: #d1a859;
+  --color-tricolor-green: #7c6e3d;
+
   --color-cream-sand: #f8f6f0;
   --color-cream-ivory: #fcfbfa;
   --color-cream-card: #f4f0e6;
@@ -29,9 +33,11 @@
     background-image: radial-gradient(rgba(20, 52, 37, 0.05) 1px, transparent 0);
     background-size: 24px 24px;
   }
+
   .custom-shadow {
     box-shadow: 0 20px 40px -15px rgba(20, 52, 37, 0.08);
   }
+
   .hero-glow {
     background: radial-gradient(circle at 50% 30%, rgba(47, 116, 84, 0.12), transparent 70%);
   }

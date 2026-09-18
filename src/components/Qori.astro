@@ -50,18 +50,36 @@ const badges = [
 
 <section id="qori" class="py-24 bg-cream-sand/50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mb-16">
-      <span class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark"
-        >{t("qori.tag")}</span
-      >
-      <h2
-        class="text-3xl sm:text-5xl font-serif font-bold text-balbux-deep mt-2"
-      >
-        {t("qori.title")}
-      </h2>
-      <p class="text-base text-slate-stone mt-4">
-        {t("qori.lead")}
-      </p>
+    <div
+      class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16"
+    >
+      <div class="max-w-3xl">
+        <span
+          class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark"
+          >{t("qori.tag")}</span
+        >
+        <h2
+          class="text-3xl sm:text-5xl font-serif font-bold text-balbux-deep mt-2"
+        >
+          {t("qori.title")}
+        </h2>
+        <p class="text-base text-slate-stone mt-4">
+          {t("qori.lead")}
+        </p>
+      </div>
+
+      <div class="flex-shrink-0 self-start md:self-center">
+        <div
+          class="w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden bg-white shadow-sm border border-stone-200/80 p-1 flex items-center justify-center"
+        >
+          <img
+            src="/images/logo-qori2.jpg"
+            alt="Logo Qōri"
+            class="w-full h-full object-contain rounded-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
     </div>
 
     <!-- Product Range Global Display -->
@@ -292,6 +310,22 @@ const badges = [
               <span>{t("qori.feature3")}</span>
             </li>
           </ul>
+
+          <!-- Ancestral Origin Callout -->
+          <div
+            class="p-4 sm:p-5 rounded-2xl bg-cream-sand/60 border border-stone-200/90 space-y-1.5"
+          >
+            <p
+              class="text-xs sm:text-sm font-bold text-balbux-deep flex items-center gap-2"
+            >
+              <span>{t("qori.ancestral.title")}</span>
+            </p>
+            <p
+              class="text-xs sm:text-sm text-slate-stone font-light leading-relaxed"
+            >
+              {t("qori.ancestral.desc")}
+            </p>
+          </div>
         </div>
 
         <div
@@ -311,7 +345,9 @@ const badges = [
             <h4
               class="text-lg font-serif font-bold text-balbux-deep flex items-center gap-2"
             >
-              <span class="w-2.5 h-2.5 rounded-full bg-balbux-accent animate-pulse"></span>
+              <span
+                class="w-2.5 h-2.5 rounded-full bg-balbux-accent animate-pulse"
+              ></span>
               {t("qori.video.title")}
             </h4>
             <span
@@ -346,13 +382,13 @@ const badges = [
           </h4>
           <div class="space-y-4 text-sm text-slate-stone">
             <div
-              class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-balbux-emerald"
+              class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-tricolor-purple"
             >
               <h5 class="font-bold text-balbux-deep">{t("qori.why1.title")}</h5>
               <p class="text-xs mt-1">{t("qori.why1.desc")}</p>
             </div>
             <div
-              class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-gold-badge"
+              class="p-4 rounded-xl bg-balbux-soft/40 border-l-4 border-tricolor-yellow"
             >
               <h5 class="font-bold text-balbux-deep">{t("qori.why2.title")}</h5>
               <p class="text-xs mt-1">{t("qori.why2.desc")}</p>
@@ -364,6 +400,61 @@ const badges = [
               <p class="text-xs mt-1">{t("qori.why3.desc")}</p>
             </div>
           </div>
+        </div>
+
+        <!-- Authentic Andean Origin Image -->
+        <div
+          class="rounded-3xl overflow-hidden shadow-sm border border-stone-200 bg-white group"
+        >
+          <img
+            src="/images/qori-agri.jpg"
+            alt={t("qori.producer.alt")}
+            class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- QŌRI Manifesto Diptych Banner -->
+    <div
+      class="mt-12 p-8 sm:p-10 rounded-3xl bg-white border border-stone-200 shadow-sm"
+    >
+      <div class="max-w-3xl mb-8 space-y-2">
+        <span
+          class="text-xs uppercase tracking-[0.25em] font-bold text-gold-dark"
+        >
+          {t("qori.manifesto.tag")}
+        </span>
+        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-balbux-deep">
+          {t("qori.manifesto.title")}
+        </h3>
+        <div class="h-1 w-14 bg-gold-badge rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Pillar 1: Roots & Mission -->
+        <div
+          class="p-6 sm:p-8 rounded-2xl bg-cream-sand/60 border border-stone-200/80 flex flex-col justify-between space-y-4"
+        >
+          <div class="w-2.5 h-2.5 rounded-full bg-gold-dark"></div>
+          <p
+            class="text-sm sm:text-base font-serif italic text-balbux-deep leading-relaxed"
+          >
+            « {t("qori.manifesto.roots")} »
+          </p>
+        </div>
+
+        <!-- Pillar 2: Soul & Modern Nutrition -->
+        <div
+          class="p-6 sm:p-8 rounded-2xl bg-cream-sand/60 border border-stone-200/80 flex flex-col justify-between space-y-4"
+        >
+          <div class="w-2.5 h-2.5 rounded-full bg-balbux-accent"></div>
+          <p
+            class="text-sm sm:text-base font-serif italic text-balbux-deep leading-relaxed"
+          >
+            « {t("qori.manifesto.soul")} »
+          </p>
         </div>
       </div>
     </div>
