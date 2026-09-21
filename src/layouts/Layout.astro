@@ -28,6 +28,97 @@ const localeMap = {
 	es: 'es_ES',
 	en: 'en_US',
 };
+
+const schema = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": ["LocalBusiness", "Organization"],
+			"@id": `${origin}/#localbusiness`,
+			"name": "BALBUX",
+			"legalName": "BALBUX",
+			"url": origin,
+			"logo": `${origin}/images/logo-balbux.webp`,
+			"image": `${origin}/images/contact.webp`,
+			"description": description,
+			"foundingDate": "2016-12-27",
+			"taxID": "824 597 819",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "189 route de Lyon",
+				"addressLocality": "Porcieu-Amblagnieu",
+				"postalCode": "38390",
+				"addressRegion": "Auvergne-Rhône-Alpes",
+				"addressCountry": "FR"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "45.8341",
+				"longitude": "5.4014"
+			},
+			"founder": [
+				{
+					"@type": "Person",
+					"name": "Jean Buxassa",
+					"jobTitle": "Co-fondateur",
+					"email": "jean.buxassa@balbux.com"
+				},
+				{
+					"@type": "Person",
+					"name": "Roberto Balcázar",
+					"jobTitle": "Co-fondateur",
+					"email": "roberto.balcazar@balbux.com"
+				}
+			],
+			"contactPoint": [
+				{
+					"@type": "ContactPoint",
+					"contactType": "sales",
+					"email": "jean.buxassa@balbux.com",
+					"availableLanguage": ["French", "Spanish", "English"]
+				},
+				{
+					"@type": "ContactPoint",
+					"contactType": "customer service",
+					"email": "roberto.balcazar@balbux.com",
+					"availableLanguage": ["Spanish", "French", "English"]
+				}
+			],
+			"knowsAbout": [
+				"Importation agroalimentaire",
+				"Superaliments des Andes",
+				"Quinoa biologique",
+				"Distribution retail Europe",
+				"Gamme QŌRI"
+			]
+		},
+		{
+			"@type": "WebSite",
+			"@id": `${origin}/#website`,
+			"url": origin,
+			"name": "BalBux",
+			"description": description,
+			"publisher": {
+				"@id": `${origin}/#localbusiness`
+			},
+			"inLanguage": ["fr", "es", "en"]
+		},
+		{
+			"@type": "WebPage",
+			"@id": `${canonicalURL}#webpage`,
+			"url": canonicalURL,
+			"name": title,
+			"description": description,
+			"isPartOf": {
+				"@id": `${origin}/#website`
+			},
+			"about": {
+				"@id": `${origin}/#localbusiness`
+			},
+			"inLanguage": currentLang
+		}
+	]
+};
 ---
 
 <!doctype html>
@@ -67,6 +158,10 @@ const localeMap = {
 		<meta property="twitter:url" content={canonicalURL} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
+		
+		<!-- Structured Data (JSON-LD) -->
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+		
 		<!-- Scroll Position Reset -->
 		<script is:inline>
 			if ('scrollRestoration' in history) {
