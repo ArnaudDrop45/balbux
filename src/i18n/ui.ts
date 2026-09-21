@@ -11,7 +11,7 @@ export const defaultLang: Lang = 'fr';
 export const ui = {
   fr: {
     // Meta
-    'meta.title': 'BalBux Group | Real Food. Real Impact. — Pérou & Europe',
+    'meta.title': 'BalBux | Real Food. Real Impact.',
     'meta.description': 'BalBux connecte les producteurs et marques andines avec le retail premium européen. Distribution, représentation et développement de marque.',
 
     // Header
