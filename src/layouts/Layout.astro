@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Toast from '../components/Toast.astro';
+import Analytics from '@vercel/analytics/astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import type { Lang } from '../i18n/ui';
 
@@ -177,5 +178,6 @@ const schema = {
 	<body class="bg-cream-ivory text-slate-charcoal font-sans antialiased overflow-x-hidden selection:bg-balbux-soft selection:text-balbux-deep min-h-screen flex flex-col">
 		<slot />
 		<Toast />
+		<Analytics />
 	</body>
 </html>
