@@ -5,11 +5,12 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const badges = [
-  {
-    img: "/images/logo-bio.webp",
-    title: t("qori.badge.bio"),
-    desc: t("qori.badge.bio.desc"),
-  },
+  // Temporairement masqué
+  // {
+  //   img: "/images/logo-bio.webp",
+  //   title: t("qori.badge.bio"),
+  //   desc: t("qori.badge.bio.desc"),
+  // },
   {
     img: "/images/logo-gluten-free.webp",
     title: t("qori.badge.glutenfree"),
@@ -106,7 +107,7 @@ const badges = [
         </span>
       </div>
       <div
-        class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4"
+        class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4"
       >
         {
           badges.map((badge) => (
