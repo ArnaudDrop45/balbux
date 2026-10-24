@@ -13,9 +13,15 @@ import Portfolio from "../components/Portfolio.astro";
 import Qori from "../components/Qori.astro";
 import Contacto from "../components/Contacto.astro";
 import Footer from "../components/Footer.astro";
+import Maintenance from "../components/Maintenance.astro";
+import { MAINTENANCE_MODE } from "../config";
 ---
 
 <Layout lang="fr">
+	{MAINTENANCE_MODE ? (
+		<Maintenance />
+	) : (
+	<>
 	<Header />
 	<main class="flex-grow">
 		<Hero />
@@ -31,4 +37,6 @@ import Footer from "../components/Footer.astro";
 		<Contacto />
 	</main>
 	<Footer />
+	</>
+	)}
 </Layout>

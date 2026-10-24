@@ -256,6 +256,10 @@ export const ui = {
 
     // Toast
     'toast.copied': 'Email copié : ',
+
+    // Maintenance
+    'maintenance.title': 'Site en cours de mise à jour',
+    'maintenance.subtitle': 'Nous revenons très bientôt',
   },
 
   es: {
@@ -505,6 +509,10 @@ export const ui = {
 
     // Toast
     'toast.copied': 'Email copiado: ',
+
+    // Maintenance
+    'maintenance.title': 'Sitio en proceso de actualización',
+    'maintenance.subtitle': 'Volvemos muy pronto',
   },
 
   en: {
@@ -754,6 +762,10 @@ export const ui = {
 
     // Toast
     'toast.copied': 'Email copied: ',
+
+    // Maintenance
+    'maintenance.title': 'Website currently being updated',
+    'maintenance.subtitle': 'We\'ll be back very soon',
   },
 } as const;
 

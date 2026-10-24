@@ -1,0 +1,29 @@
+---
+import LanguagePicker from './LanguagePicker.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<main
+  class="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/images/maintenance.jpg');"
+>
+  <!-- Overlay for text readability -->
+  <div class="absolute inset-0 bg-balbux-deep/20"></div>
+
+  <!-- Language Picker (always visible) -->
+  <div class="fixed top-4 right-4 sm:top-6 sm:right-6 z-50">
+    <LanguagePicker />
+  </div>
+
+  <div class="relative z-10 px-6 text-center max-w-3xl">
+    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg leading-tight">
+      {t('maintenance.title')}
+    </h1>
+    <p class="mt-6 text-lg sm:text-2xl font-medium text-cream-sand/95 drop-shadow-md">
+      {t('maintenance.subtitle')}
+    </p>
+  </div>
+</main>

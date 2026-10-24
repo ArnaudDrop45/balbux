@@ -13,6 +13,8 @@ import Portfolio from "../../components/Portfolio.astro";
 import Qori from "../../components/Qori.astro";
 import Contacto from "../../components/Contacto.astro";
 import Footer from "../../components/Footer.astro";
+import Maintenance from "../../components/Maintenance.astro";
+import { MAINTENANCE_MODE } from "../../config";
 import type { Lang } from "../../i18n/ui";
 
 export function getStaticPaths() {
@@ -26,6 +28,10 @@ const { lang } = Astro.params as { lang: Lang };
 ---
 
 <Layout lang={lang}>
+	{MAINTENANCE_MODE ? (
+		<Maintenance />
+	) : (
+	<>
 	<Header />
 	<main class="flex-grow">
 		<Hero />
@@ -41,4 +47,6 @@ const { lang } = Astro.params as { lang: Lang };
 		<Contacto />
 	</main>
 	<Footer />
+	</>
+	)}
 </Layout>
