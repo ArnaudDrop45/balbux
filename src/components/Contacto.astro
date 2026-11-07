@@ -86,19 +86,8 @@ const t = useTranslations(lang);
     <div
       class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto"
     >
-      <!-- Left Column: Visual & Legal Details -->
+      <!-- Left Column: Legal Details -->
       <div class="lg:col-span-6 space-y-6">
-        <div
-          class="rounded-3xl overflow-hidden shadow-lg border border-stone-200"
-        >
-          <img
-            src="/images/contact.webp"
-            alt={t("contact.img.alt")}
-            class="w-full h-64 sm:h-72 object-cover"
-            loading="lazy"
-          />
-        </div>
-
         <!-- Headquarters Details -->
         <div
           class="p-6 rounded-3xl bg-cream-sand/60 border border-stone-200 space-y-3 text-xs text-slate-stone shadow-xs"
@@ -109,10 +98,6 @@ const t = useTranslations(lang);
           <p class="flex items-center gap-2">
             <span>📍</span>
             <span>{t("contact.legal.address")}</span>
-          </p>
-          <p class="flex items-center gap-2">
-            <span>📑</span>
-            <span>{t("contact.legal.reg")}</span>
           </p>
           <p class="flex items-center gap-2 font-medium text-balbux-deep">
             <span>🌐</span>
@@ -141,30 +126,30 @@ const t = useTranslations(lang);
           </div>
 
           <div class="space-y-4">
-            <!-- Jean Buxassa -->
+            <!-- Corporate contact -->
             <div
               class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
             >
               <div>
                 <div class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-balbux-emerald"></span>
-                  <p class="font-bold text-sm text-balbux-deep">Jean Buxassa</p>
+                  <p class="font-bold text-sm text-balbux-deep">BALBUX</p>
                 </div>
                 <p class="text-[11px] text-slate-stone mt-0.5">
-                  {t("contact.team.jean.role")}
+                  {t("contact.team.role")}
                 </p>
                 <a
-                  href="mailto:jean.buxassa@balbux.com"
+                  href="mailto:contact@balbux.com"
                   class="text-xs text-balbux-accent hover:underline font-mono mt-1 inline-block"
                 >
-                  jean.buxassa@balbux.com
+                  contact@balbux.com
                 </a>
               </div>
               <div class="flex items-center gap-2 self-start sm:self-center">
                 <button
                   type="button"
                   data-copied-text={t("contact.btn.copied")}
-                  onclick="window.copyToClipboard('jean.buxassa@balbux.com', this)"
+                  onclick="window.copyToClipboard('contact@balbux.com', this)"
                   class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-cream-sand/80 border border-stone-300 hover:bg-stone-100 transition-colors text-slate-charcoal shadow-2xs cursor-pointer flex items-center gap-1.5"
                 >
                   <svg
@@ -183,59 +168,7 @@ const t = useTranslations(lang);
                   <span>{t("contact.btn.copy")}</span>
                 </button>
                 <a
-                  href="mailto:jean.buxassa@balbux.com"
-                  class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-balbux-deep text-white hover:bg-balbux-forest transition-colors shadow-2xs"
-                >
-                  {t("contact.btn.write")}
-                </a>
-              </div>
-            </div>
-
-            <!-- Roberto Balcázar -->
-            <div
-              class="p-5 rounded-2xl bg-white border border-stone-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
-            >
-              <div>
-                <div class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-gold-dark"></span>
-                  <p class="font-bold text-sm text-balbux-deep">
-                    Roberto Balcázar
-                  </p>
-                </div>
-                <p class="text-[11px] text-slate-stone mt-0.5">
-                  {t("contact.team.roberto.role")}
-                </p>
-                <a
-                  href="mailto:roberto.balcazar@balbux.com"
-                  class="text-xs text-balbux-accent hover:underline font-mono mt-1 inline-block"
-                >
-                  roberto.balcazar@balbux.com
-                </a>
-              </div>
-              <div class="flex items-center gap-2 self-start sm:self-center">
-                <button
-                  type="button"
-                  data-copied-text={t("contact.btn.copied")}
-                  onclick="window.copyToClipboard('roberto.balcazar@balbux.com', this)"
-                  class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-cream-sand/80 border border-stone-300 hover:bg-stone-100 transition-colors text-slate-charcoal shadow-2xs cursor-pointer flex items-center gap-1.5"
-                >
-                  <svg
-                    class="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-                    ></path>
-                  </svg>
-                  <span>{t("contact.btn.copy")}</span>
-                </button>
-                <a
-                  href="mailto:robertobalcazar@balbux.com"
+                  href="mailto:contact@balbux.com"
                   class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-balbux-deep text-white hover:bg-balbux-forest transition-colors shadow-2xs"
                 >
                   {t("contact.btn.write")}
